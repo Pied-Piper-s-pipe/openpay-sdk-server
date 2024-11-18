@@ -1,0 +1,69 @@
+generator client {
+  previewFeatures = ["prismaSchemaFolder"]
+  provider        = "prisma-client-js"
+  binaryTargets   = ["native", "linux-musl-openssl-3.0.x"]
+  output          = "../../.prisma/backend-client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("BACKEND_DATABASE_URL")
+}
+
+model Chain {
+  id          String   @id @default(uuid())
+  chain_id    String   @default("")
+  wallet_type Int
+  chain_name  String   @default("")
+  chain_icon  String   @default("")
+  status_type Int      @default(1) //状态 1-正常  2-停止使用
+  sort        Int      @default(0)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  nodes       Node[]
+  tokens      Token[]
+
+  @@unique([chain_id])
+  @@unique([wallet_type])
+  @@map("chains")
+}
+
+model Node {
+  id         String   @id @default(uuid())
+  chain_id   String   @default("")
+  node_url   String   @default("")
+  chain      Chain?   @relation(fields: [chain_id], references: [chain_id])
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("nodes")
+}
+
+model Token {
+  id                 String   @id @default(uuid())
+  chain_id           String   @default("")
+  token_symbol       String   @default("")
+  token_name         String   @default("")
+  token_icon         String   @default("")
+  contract_address   String   @default("")
+  token_decimals     Int
+  is_native          Boolean  @default(false)
+  is_multiple_chain  Boolean  @default(false)
+  coin_market_cap_id Int
+  default_subscribe  Int      @default(0) //是否默认订阅价格， 0-否 1-是
+  chain              Chain?   @relation(fields: [chain_id], references: [chain_id])
+  created_at         DateTime @default(now())
+  updated_at         DateTime @updatedAt
+
+  @@map("tokens")
+}
+
+model TokenSubscribe {
+  id         Int       @id @default(autoincrement())
+  token_ids  String
+  address    String    @unique
+  created_at DateTime? @default(now())
+  updated_at DateTime  @updatedAt
+
+  @@map("token_subscribes")
+}

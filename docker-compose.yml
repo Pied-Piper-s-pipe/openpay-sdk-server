@@ -1,0 +1,63 @@
+version: '3.8'
+services:
+  migrate:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: node scripts/prisma.js prod backend migrate deploy #--schema=prisma/schema/backend/schema.prisma
+    volumes:
+      - ./config.docker.yaml:/app/config.production.yaml
+    network_mode: host
+  seeds:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - SEED_TYPE=backend
+      - NODE_ENV=production
+    command: npx ts-node prisma/seed.ts # --schema=prisma/schema/backend/schema.prisma
+    volumes:
+      - ./config.docker.yaml:/app/config.production.yaml
+    network_mode: host
+    depends_on:
+      - migrate
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: backend-builder
+    command: node dist/apps/backend/main.js
+    # command: ls -al /app/node_modules
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./config.docker.yaml:/app/config.production.yaml
+    network_mode: host
+    restart: always
+    depends_on:
+      - seeds
+  gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: gateway-builder
+    command: node dist/apps/gateway/main.js
+    # command: ls -al /app/node_modules
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./config.docker.yaml:/app/config.production.yaml
+    network_mode: host
+    restart: always
+  cron:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: cron-builder
+    command: pnpm node dist/apps/task-scheduler/main.js
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./config.docker.yaml:/app/config.production.yaml
+    network_mode: host
+    restart: always

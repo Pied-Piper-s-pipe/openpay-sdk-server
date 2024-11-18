@@ -1,0 +1,33 @@
+# 服务器配置
+server:
+  backend_port: 3002
+  gateway_port: 13002
+  task_port: 4002
+
+# 数据库配置
+database:
+  backend:
+    url: 'postgresql://postgres:asdf@localhost:5432/open-pay-sdk?schema=public'
+# Redis配置
+redis:
+  url: 'redis://localhost:16379/2'
+
+# RabbitMQ配置
+rabbitmq:
+  url: 'amqp://guest:guest@localhost:5672'
+
+coinMarketCap:
+  api: 'https://pro-api.coinmarketcap.com'
+  accessKey: '9c3eb799-9b2d-47c5-80cd-d06b028b056c'
+
+oklink:
+  api: 'https://www.oklink.com/'
+  accessKey: '1cb3f8c5-e30c-41b7-87e6-2e36d3929998'
+
+alchemy:
+  api: 'https://${network}.g.alchemy.com'
+  accessKey: 'r6YYHS4Dubw3w91YTlewG7PPsYf63ahu'
+
+task:
+  cron:
+    price: '*/10 * * * * *'
