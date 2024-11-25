@@ -8,6 +8,7 @@ import { PrismaService } from '@app/shared/prisma/prisma.service';
 import { GetChainsResponseDto } from './dto/get-chains.response.dto';
 import { plainToInstance } from 'class-transformer';
 import { ChainStatusTypeEnum } from '@app/shared/define/chain.enum';
+import { REDIS_EXPIRE } from '@app/shared/define/const';
 
 @Injectable()
 export class ChainService {
@@ -31,6 +32,7 @@ export class ChainService {
       return Promise.all(
         chains.map(async (chain) => {
           await this.redis.zadd(redisKey, chain.sort, JSON.stringify(chain));
+          await this.redis.expire(redisKey, REDIS_EXPIRE);
           return {
             chain_id: chain.chain_id,
             wallet_type: chain.wallet_type,

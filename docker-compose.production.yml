@@ -4,6 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    image: $DOCKER_REGISTRY/sn/openpay/sdk/migrate  # 指定镜像名称
     command: node scripts/prisma.js prod backend migrate deploy #--schema=prisma/schema/backend/schema.prisma
     volumes:
       - ./config.docker.yaml:/app/config.production.yaml
@@ -13,6 +14,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    image: $DOCKER_REGISTRY/sn/openpay/sdk/seeds  # 指定镜像名称
     environment:
       - SEED_TYPE=backend
       - NODE_ENV=production
@@ -28,6 +30,7 @@ services:
       context: .
       dockerfile: Dockerfile
       target: backend-builder
+    image: $DOCKER_REGISTRY/sn/openpay/sdk/backend  # 指定镜像名称
     command: node dist/apps/backend/main.js
     environment:
       - NODE_ENV=production
@@ -43,6 +46,7 @@ services:
       context: .
       dockerfile: Dockerfile
       target: gateway-builder
+    image: $DOCKER_REGISTRY/sn/openpay/sdk/gateway  # 指定镜像名称
     command: node dist/apps/gateway/main.js
     environment:
       - NODE_ENV=production
@@ -56,6 +60,7 @@ services:
       context: .
       dockerfile: Dockerfile
       target: cron-builder
+    image: $DOCKER_REGISTRY/sn/openpay/sdk/cron  # 指定镜像名称
     command: pnpm node dist/apps/task-scheduler/main.js
     environment:
       - NODE_ENV=production

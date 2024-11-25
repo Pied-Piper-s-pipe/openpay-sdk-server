@@ -1,8 +1,8 @@
 import * as fs from 'fs';
 import * as yaml from 'js-yaml';
 
-import { backendSeed } from './schema/backend/seed';
-import Redis from 'ioredis';
+import { backendSeedProd } from './schema/backend/seed';
+import { backendSeedDev } from './schema/backend/seed.dev';
 
 function loadConfig() {
   const environment = process.env.NODE_ENV || 'development';
@@ -14,9 +14,13 @@ function loadConfig() {
 
 async function main() {
   const config = loadConfig();
-
   process.env.BACKEND_DATABASE_URL = config.database.backend.url;
-  await backendSeed(config);
+  const environment = process.env.NODE_ENV || 'development';
+  if (environment === 'development') {
+    await backendSeedDev(config);
+  } else {
+    await backendSeedProd(config);
+  }
 }
 
 main()

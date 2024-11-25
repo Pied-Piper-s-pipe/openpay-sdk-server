@@ -1,8 +1,8 @@
 # 服务器配置
 server:
-  backend_port: 3002
-  gateway_port: 13002
-  task_port: 4002
+  backend_port: 3001
+  gateway_port: 13001
+  task_port: 4001
 
 # 数据库配置
 database:

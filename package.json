@@ -20,7 +20,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "prismajs": "node ./scripts/prisma.js",
     "prisma:gen:backend": "npx prisma generate --schema=prisma/schema/backend/schema.prisma",
-    "seed:backend": "prisma db seed --schema=./prisma/schema/backend/schema.prisma"
+    "seed:backend": "prisma db seed --schema=./prisma/schema/backend/schema.prisma",
+    "workflow:image": "act -W .github/workflows/build-image.yml --secret-file .act.env"
   },
   "dependencies": {
     "@nestjs-modules/ioredis": "^2.0.2",
