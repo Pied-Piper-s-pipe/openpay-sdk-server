@@ -10,4 +10,7 @@ export class GetNodeByChainResponseDto {
 
   @Expose()
   node_urls: string[];
+
+  @Expose()
+  wallet_type: number;
 }

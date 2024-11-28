@@ -8,7 +8,7 @@ import {
   MinLength,
 } from 'class-validator';
 import { TokenInfo } from '../entities/token.entity';
-import { Exclude, Expose } from 'class-transformer';
+import { Exclude, Expose, Transform } from 'class-transformer';
 
 @Exclude()
 export class PageTokenResponseDto {
@@ -18,6 +18,10 @@ export class PageTokenResponseDto {
 
 @Exclude()
 export class PageTokenDto {
+  @Expose()
+  @IsString()
+  id: string;
+
   @Expose()
   @IsString()
   @MinLength(1)
@@ -51,7 +55,15 @@ export class PageTokenDto {
   is_native: boolean;
 
   @Expose()
+  @IsBoolean()
+  is_multiple_chain: boolean;
+
+  @Expose()
   @IsInt()
   @Min(1)
   coin_market_cap_id: number;
+
+  @Expose()
+  @Transform(({ obj }) => obj.chain?.wallet_type)
+  wallet_type: number;
 }

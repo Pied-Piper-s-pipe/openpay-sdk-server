@@ -46,16 +46,18 @@ export class NodeService {
       },
       orderBy: { sort: 'asc' },
     });
-    const chainIDs = chains.map((chain) => {
-      return chain.chain_id;
-    });
+    // const chainIDs = chains.map((chain) => {
+    //   return chain.chain_id;
+    // });
 
     return Promise.all(
-      chainIDs.map(async (chainID) => {
+      chains.map(async (chain) => {
+        const chainID = chain.chain_id;
         const redisKey = CHAIN_NODE.concat(chainID);
         const nodes = await this.redis.lrange(redisKey, 0, -1);
         const result: GetNodeByChainResponseDto = {
           chain_id: chainID,
+          wallet_type: chain.wallet_type,
           node_urls: [],
         };
         if (nodes.length == 0) {

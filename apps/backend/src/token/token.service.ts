@@ -20,6 +20,7 @@ import {
   TOKEN_SUBSCRIBE_SUFFIX,
 } from '@app/shared/define/redis-key-suffix';
 import { TokenInfo } from './entities/token.entity';
+import { plainToInstance } from 'class-transformer';
 
 @Injectable()
 export class TokenService {
@@ -39,18 +40,9 @@ export class TokenService {
     this.logger.log(
       `find all tokens request: ${JSON.stringify(pageTokenRequest)}`,
     );
-    return await this.prismaService.token.findMany({
-      select: {
-        id: true,
-        chain_id: true,
-        token_name: true,
-        token_symbol: true,
-        token_icon: true,
-        token_decimals: true,
-        contract_address: true,
-        coin_market_cap_id: true,
-        is_native: true,
-        is_multiple_chain: true,
+    const tokens = await this.prismaService.token.findMany({
+      include: {
+        chain: true,
       },
       where: {
         ...(pageTokenRequest.chain_id && {
@@ -63,6 +55,7 @@ export class TokenService {
         }),
       },
     });
+    return await plainToInstance(PageTokenDto, tokens);
   }
 
   async findOne(id: string): Promise<TokenInfo> {
