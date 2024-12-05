@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { SharedModule } from '@app/shared/shared.module';
@@ -11,9 +11,17 @@ import { TransactionController } from './third-party/transaction.controller';
 import { TransactionService } from './third-party/transaction.service';
 import { NftController } from './nft/nft.controller';
 import { NftService } from './nft/nft.service';
+import { UserWalletModule } from './user-wallet/user-wallet.module';
+import { CacheControlMiddleware } from '@app/shared/middleware/cache-control-middleware';
 
 @Module({
-  imports: [SharedModule, ChainModule, TokenModule, NodeModule],
+  imports: [
+    SharedModule,
+    ChainModule,
+    TokenModule,
+    NodeModule,
+    UserWalletModule,
+  ],
   controllers: [AppController, TransactionController, NftController],
   providers: [
     AppService,

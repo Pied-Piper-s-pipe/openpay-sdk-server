@@ -33,6 +33,16 @@ export type Token = $Result.DefaultSelection<Prisma.$TokenPayload>
  * 
  */
 export type TokenSubscribe = $Result.DefaultSelection<Prisma.$TokenSubscribePayload>
+/**
+ * Model UserWallet
+ * 
+ */
+export type UserWallet = $Result.DefaultSelection<Prisma.$UserWalletPayload>
+/**
+ * Model UserBalanceHistory
+ * 
+ */
+export type UserBalanceHistory = $Result.DefaultSelection<Prisma.$UserBalanceHistoryPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -196,6 +206,26 @@ export class PrismaClient<
     * ```
     */
   get tokenSubscribe(): Prisma.TokenSubscribeDelegate<ExtArgs>;
+
+  /**
+   * `prisma.userWallet`: Exposes CRUD operations for the **UserWallet** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more UserWallets
+    * const userWallets = await prisma.userWallet.findMany()
+    * ```
+    */
+  get userWallet(): Prisma.UserWalletDelegate<ExtArgs>;
+
+  /**
+   * `prisma.userBalanceHistory`: Exposes CRUD operations for the **UserBalanceHistory** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more UserBalanceHistories
+    * const userBalanceHistories = await prisma.userBalanceHistory.findMany()
+    * ```
+    */
+  get userBalanceHistory(): Prisma.UserBalanceHistoryDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -640,7 +670,9 @@ export namespace Prisma {
     Chain: 'Chain',
     Node: 'Node',
     Token: 'Token',
-    TokenSubscribe: 'TokenSubscribe'
+    TokenSubscribe: 'TokenSubscribe',
+    UserWallet: 'UserWallet',
+    UserBalanceHistory: 'UserBalanceHistory'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -656,7 +688,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "chain" | "node" | "token" | "tokenSubscribe"
+      modelProps: "chain" | "node" | "token" | "tokenSubscribe" | "userWallet" | "userBalanceHistory"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -940,6 +972,146 @@ export namespace Prisma {
           }
         }
       }
+      UserWallet: {
+        payload: Prisma.$UserWalletPayload<ExtArgs>
+        fields: Prisma.UserWalletFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.UserWalletFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserWalletPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.UserWalletFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserWalletPayload>
+          }
+          findFirst: {
+            args: Prisma.UserWalletFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserWalletPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.UserWalletFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserWalletPayload>
+          }
+          findMany: {
+            args: Prisma.UserWalletFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserWalletPayload>[]
+          }
+          create: {
+            args: Prisma.UserWalletCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserWalletPayload>
+          }
+          createMany: {
+            args: Prisma.UserWalletCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.UserWalletCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserWalletPayload>[]
+          }
+          delete: {
+            args: Prisma.UserWalletDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserWalletPayload>
+          }
+          update: {
+            args: Prisma.UserWalletUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserWalletPayload>
+          }
+          deleteMany: {
+            args: Prisma.UserWalletDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.UserWalletUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.UserWalletUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserWalletPayload>
+          }
+          aggregate: {
+            args: Prisma.UserWalletAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUserWallet>
+          }
+          groupBy: {
+            args: Prisma.UserWalletGroupByArgs<ExtArgs>
+            result: $Utils.Optional<UserWalletGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.UserWalletCountArgs<ExtArgs>
+            result: $Utils.Optional<UserWalletCountAggregateOutputType> | number
+          }
+        }
+      }
+      UserBalanceHistory: {
+        payload: Prisma.$UserBalanceHistoryPayload<ExtArgs>
+        fields: Prisma.UserBalanceHistoryFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.UserBalanceHistoryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserBalanceHistoryPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.UserBalanceHistoryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserBalanceHistoryPayload>
+          }
+          findFirst: {
+            args: Prisma.UserBalanceHistoryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserBalanceHistoryPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.UserBalanceHistoryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserBalanceHistoryPayload>
+          }
+          findMany: {
+            args: Prisma.UserBalanceHistoryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserBalanceHistoryPayload>[]
+          }
+          create: {
+            args: Prisma.UserBalanceHistoryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserBalanceHistoryPayload>
+          }
+          createMany: {
+            args: Prisma.UserBalanceHistoryCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.UserBalanceHistoryCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserBalanceHistoryPayload>[]
+          }
+          delete: {
+            args: Prisma.UserBalanceHistoryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserBalanceHistoryPayload>
+          }
+          update: {
+            args: Prisma.UserBalanceHistoryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserBalanceHistoryPayload>
+          }
+          deleteMany: {
+            args: Prisma.UserBalanceHistoryDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.UserBalanceHistoryUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.UserBalanceHistoryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserBalanceHistoryPayload>
+          }
+          aggregate: {
+            args: Prisma.UserBalanceHistoryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUserBalanceHistory>
+          }
+          groupBy: {
+            args: Prisma.UserBalanceHistoryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<UserBalanceHistoryGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.UserBalanceHistoryCountArgs<ExtArgs>
+            result: $Utils.Optional<UserBalanceHistoryCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1133,6 +1305,37 @@ export namespace Prisma {
    */
   export type ChainCountOutputTypeCountTokensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: TokenWhereInput
+  }
+
+
+  /**
+   * Count Type TokenCountOutputType
+   */
+
+  export type TokenCountOutputType = {
+    UserBalanceHistory: number
+  }
+
+  export type TokenCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    UserBalanceHistory?: boolean | TokenCountOutputTypeCountUserBalanceHistoryArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * TokenCountOutputType without action
+   */
+  export type TokenCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TokenCountOutputType
+     */
+    select?: TokenCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * TokenCountOutputType without action
+   */
+  export type TokenCountOutputTypeCountUserBalanceHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserBalanceHistoryWhereInput
   }
 
 
@@ -3421,6 +3624,8 @@ export namespace Prisma {
     created_at?: boolean
     updated_at?: boolean
     chain?: boolean | Token$chainArgs<ExtArgs>
+    UserBalanceHistory?: boolean | Token$UserBalanceHistoryArgs<ExtArgs>
+    _count?: boolean | TokenCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["token"]>
 
   export type TokenSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -3458,6 +3663,8 @@ export namespace Prisma {
 
   export type TokenInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     chain?: boolean | Token$chainArgs<ExtArgs>
+    UserBalanceHistory?: boolean | Token$UserBalanceHistoryArgs<ExtArgs>
+    _count?: boolean | TokenCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type TokenIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     chain?: boolean | Token$chainArgs<ExtArgs>
@@ -3467,6 +3674,7 @@ export namespace Prisma {
     name: "Token"
     objects: {
       chain: Prisma.$ChainPayload<ExtArgs> | null
+      UserBalanceHistory: Prisma.$UserBalanceHistoryPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -3847,6 +4055,7 @@ export namespace Prisma {
   export interface Prisma__TokenClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     chain<T extends Token$chainArgs<ExtArgs> = {}>(args?: Subset<T, Token$chainArgs<ExtArgs>>): Prisma__ChainClient<$Result.GetResult<Prisma.$ChainPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    UserBalanceHistory<T extends Token$UserBalanceHistoryArgs<ExtArgs> = {}>(args?: Subset<T, Token$UserBalanceHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserBalanceHistoryPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4219,6 +4428,26 @@ export namespace Prisma {
      */
     include?: ChainInclude<ExtArgs> | null
     where?: ChainWhereInput
+  }
+
+  /**
+   * Token.UserBalanceHistory
+   */
+  export type Token$UserBalanceHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserBalanceHistory
+     */
+    select?: UserBalanceHistorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserBalanceHistoryInclude<ExtArgs> | null
+    where?: UserBalanceHistoryWhereInput
+    orderBy?: UserBalanceHistoryOrderByWithRelationInput | UserBalanceHistoryOrderByWithRelationInput[]
+    cursor?: UserBalanceHistoryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserBalanceHistoryScalarFieldEnum | UserBalanceHistoryScalarFieldEnum[]
   }
 
   /**
@@ -5149,6 +5378,1980 @@ export namespace Prisma {
 
 
   /**
+   * Model UserWallet
+   */
+
+  export type AggregateUserWallet = {
+    _count: UserWalletCountAggregateOutputType | null
+    _avg: UserWalletAvgAggregateOutputType | null
+    _sum: UserWalletSumAggregateOutputType | null
+    _min: UserWalletMinAggregateOutputType | null
+    _max: UserWalletMaxAggregateOutputType | null
+  }
+
+  export type UserWalletAvgAggregateOutputType = {
+    id: number | null
+    wallet_type: number | null
+  }
+
+  export type UserWalletSumAggregateOutputType = {
+    id: number | null
+    wallet_type: number | null
+  }
+
+  export type UserWalletMinAggregateOutputType = {
+    id: number | null
+    user_id: string | null
+    address: string | null
+    wallet_type: number | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type UserWalletMaxAggregateOutputType = {
+    id: number | null
+    user_id: string | null
+    address: string | null
+    wallet_type: number | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type UserWalletCountAggregateOutputType = {
+    id: number
+    user_id: number
+    address: number
+    wallet_type: number
+    created_at: number
+    updated_at: number
+    _all: number
+  }
+
+
+  export type UserWalletAvgAggregateInputType = {
+    id?: true
+    wallet_type?: true
+  }
+
+  export type UserWalletSumAggregateInputType = {
+    id?: true
+    wallet_type?: true
+  }
+
+  export type UserWalletMinAggregateInputType = {
+    id?: true
+    user_id?: true
+    address?: true
+    wallet_type?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type UserWalletMaxAggregateInputType = {
+    id?: true
+    user_id?: true
+    address?: true
+    wallet_type?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type UserWalletCountAggregateInputType = {
+    id?: true
+    user_id?: true
+    address?: true
+    wallet_type?: true
+    created_at?: true
+    updated_at?: true
+    _all?: true
+  }
+
+  export type UserWalletAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserWallet to aggregate.
+     */
+    where?: UserWalletWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserWallets to fetch.
+     */
+    orderBy?: UserWalletOrderByWithRelationInput | UserWalletOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: UserWalletWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserWallets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserWallets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned UserWallets
+    **/
+    _count?: true | UserWalletCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: UserWalletAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: UserWalletSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: UserWalletMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: UserWalletMaxAggregateInputType
+  }
+
+  export type GetUserWalletAggregateType<T extends UserWalletAggregateArgs> = {
+        [P in keyof T & keyof AggregateUserWallet]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUserWallet[P]>
+      : GetScalarType<T[P], AggregateUserWallet[P]>
+  }
+
+
+
+
+  export type UserWalletGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserWalletWhereInput
+    orderBy?: UserWalletOrderByWithAggregationInput | UserWalletOrderByWithAggregationInput[]
+    by: UserWalletScalarFieldEnum[] | UserWalletScalarFieldEnum
+    having?: UserWalletScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: UserWalletCountAggregateInputType | true
+    _avg?: UserWalletAvgAggregateInputType
+    _sum?: UserWalletSumAggregateInputType
+    _min?: UserWalletMinAggregateInputType
+    _max?: UserWalletMaxAggregateInputType
+  }
+
+  export type UserWalletGroupByOutputType = {
+    id: number
+    user_id: string
+    address: string
+    wallet_type: number
+    created_at: Date | null
+    updated_at: Date
+    _count: UserWalletCountAggregateOutputType | null
+    _avg: UserWalletAvgAggregateOutputType | null
+    _sum: UserWalletSumAggregateOutputType | null
+    _min: UserWalletMinAggregateOutputType | null
+    _max: UserWalletMaxAggregateOutputType | null
+  }
+
+  type GetUserWalletGroupByPayload<T extends UserWalletGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<UserWalletGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof UserWalletGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], UserWalletGroupByOutputType[P]>
+            : GetScalarType<T[P], UserWalletGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type UserWalletSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    address?: boolean
+    wallet_type?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+  }, ExtArgs["result"]["userWallet"]>
+
+  export type UserWalletSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    address?: boolean
+    wallet_type?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+  }, ExtArgs["result"]["userWallet"]>
+
+  export type UserWalletSelectScalar = {
+    id?: boolean
+    user_id?: boolean
+    address?: boolean
+    wallet_type?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+  }
+
+
+  export type $UserWalletPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "UserWallet"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      user_id: string
+      address: string
+      wallet_type: number
+      created_at: Date | null
+      updated_at: Date
+    }, ExtArgs["result"]["userWallet"]>
+    composites: {}
+  }
+
+  type UserWalletGetPayload<S extends boolean | null | undefined | UserWalletDefaultArgs> = $Result.GetResult<Prisma.$UserWalletPayload, S>
+
+  type UserWalletCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<UserWalletFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: UserWalletCountAggregateInputType | true
+    }
+
+  export interface UserWalletDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['UserWallet'], meta: { name: 'UserWallet' } }
+    /**
+     * Find zero or one UserWallet that matches the filter.
+     * @param {UserWalletFindUniqueArgs} args - Arguments to find a UserWallet
+     * @example
+     * // Get one UserWallet
+     * const userWallet = await prisma.userWallet.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends UserWalletFindUniqueArgs>(args: SelectSubset<T, UserWalletFindUniqueArgs<ExtArgs>>): Prisma__UserWalletClient<$Result.GetResult<Prisma.$UserWalletPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one UserWallet that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {UserWalletFindUniqueOrThrowArgs} args - Arguments to find a UserWallet
+     * @example
+     * // Get one UserWallet
+     * const userWallet = await prisma.userWallet.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends UserWalletFindUniqueOrThrowArgs>(args: SelectSubset<T, UserWalletFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UserWalletClient<$Result.GetResult<Prisma.$UserWalletPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first UserWallet that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserWalletFindFirstArgs} args - Arguments to find a UserWallet
+     * @example
+     * // Get one UserWallet
+     * const userWallet = await prisma.userWallet.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends UserWalletFindFirstArgs>(args?: SelectSubset<T, UserWalletFindFirstArgs<ExtArgs>>): Prisma__UserWalletClient<$Result.GetResult<Prisma.$UserWalletPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first UserWallet that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserWalletFindFirstOrThrowArgs} args - Arguments to find a UserWallet
+     * @example
+     * // Get one UserWallet
+     * const userWallet = await prisma.userWallet.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends UserWalletFindFirstOrThrowArgs>(args?: SelectSubset<T, UserWalletFindFirstOrThrowArgs<ExtArgs>>): Prisma__UserWalletClient<$Result.GetResult<Prisma.$UserWalletPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more UserWallets that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserWalletFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all UserWallets
+     * const userWallets = await prisma.userWallet.findMany()
+     * 
+     * // Get first 10 UserWallets
+     * const userWallets = await prisma.userWallet.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const userWalletWithIdOnly = await prisma.userWallet.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends UserWalletFindManyArgs>(args?: SelectSubset<T, UserWalletFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserWalletPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a UserWallet.
+     * @param {UserWalletCreateArgs} args - Arguments to create a UserWallet.
+     * @example
+     * // Create one UserWallet
+     * const UserWallet = await prisma.userWallet.create({
+     *   data: {
+     *     // ... data to create a UserWallet
+     *   }
+     * })
+     * 
+     */
+    create<T extends UserWalletCreateArgs>(args: SelectSubset<T, UserWalletCreateArgs<ExtArgs>>): Prisma__UserWalletClient<$Result.GetResult<Prisma.$UserWalletPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many UserWallets.
+     * @param {UserWalletCreateManyArgs} args - Arguments to create many UserWallets.
+     * @example
+     * // Create many UserWallets
+     * const userWallet = await prisma.userWallet.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends UserWalletCreateManyArgs>(args?: SelectSubset<T, UserWalletCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many UserWallets and returns the data saved in the database.
+     * @param {UserWalletCreateManyAndReturnArgs} args - Arguments to create many UserWallets.
+     * @example
+     * // Create many UserWallets
+     * const userWallet = await prisma.userWallet.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many UserWallets and only return the `id`
+     * const userWalletWithIdOnly = await prisma.userWallet.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends UserWalletCreateManyAndReturnArgs>(args?: SelectSubset<T, UserWalletCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserWalletPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a UserWallet.
+     * @param {UserWalletDeleteArgs} args - Arguments to delete one UserWallet.
+     * @example
+     * // Delete one UserWallet
+     * const UserWallet = await prisma.userWallet.delete({
+     *   where: {
+     *     // ... filter to delete one UserWallet
+     *   }
+     * })
+     * 
+     */
+    delete<T extends UserWalletDeleteArgs>(args: SelectSubset<T, UserWalletDeleteArgs<ExtArgs>>): Prisma__UserWalletClient<$Result.GetResult<Prisma.$UserWalletPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one UserWallet.
+     * @param {UserWalletUpdateArgs} args - Arguments to update one UserWallet.
+     * @example
+     * // Update one UserWallet
+     * const userWallet = await prisma.userWallet.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends UserWalletUpdateArgs>(args: SelectSubset<T, UserWalletUpdateArgs<ExtArgs>>): Prisma__UserWalletClient<$Result.GetResult<Prisma.$UserWalletPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more UserWallets.
+     * @param {UserWalletDeleteManyArgs} args - Arguments to filter UserWallets to delete.
+     * @example
+     * // Delete a few UserWallets
+     * const { count } = await prisma.userWallet.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends UserWalletDeleteManyArgs>(args?: SelectSubset<T, UserWalletDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more UserWallets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserWalletUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many UserWallets
+     * const userWallet = await prisma.userWallet.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends UserWalletUpdateManyArgs>(args: SelectSubset<T, UserWalletUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one UserWallet.
+     * @param {UserWalletUpsertArgs} args - Arguments to update or create a UserWallet.
+     * @example
+     * // Update or create a UserWallet
+     * const userWallet = await prisma.userWallet.upsert({
+     *   create: {
+     *     // ... data to create a UserWallet
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the UserWallet we want to update
+     *   }
+     * })
+     */
+    upsert<T extends UserWalletUpsertArgs>(args: SelectSubset<T, UserWalletUpsertArgs<ExtArgs>>): Prisma__UserWalletClient<$Result.GetResult<Prisma.$UserWalletPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of UserWallets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserWalletCountArgs} args - Arguments to filter UserWallets to count.
+     * @example
+     * // Count the number of UserWallets
+     * const count = await prisma.userWallet.count({
+     *   where: {
+     *     // ... the filter for the UserWallets we want to count
+     *   }
+     * })
+    **/
+    count<T extends UserWalletCountArgs>(
+      args?: Subset<T, UserWalletCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], UserWalletCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a UserWallet.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserWalletAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends UserWalletAggregateArgs>(args: Subset<T, UserWalletAggregateArgs>): Prisma.PrismaPromise<GetUserWalletAggregateType<T>>
+
+    /**
+     * Group by UserWallet.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserWalletGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends UserWalletGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: UserWalletGroupByArgs['orderBy'] }
+        : { orderBy?: UserWalletGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, UserWalletGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserWalletGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the UserWallet model
+   */
+  readonly fields: UserWalletFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for UserWallet.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__UserWalletClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the UserWallet model
+   */ 
+  interface UserWalletFieldRefs {
+    readonly id: FieldRef<"UserWallet", 'Int'>
+    readonly user_id: FieldRef<"UserWallet", 'String'>
+    readonly address: FieldRef<"UserWallet", 'String'>
+    readonly wallet_type: FieldRef<"UserWallet", 'Int'>
+    readonly created_at: FieldRef<"UserWallet", 'DateTime'>
+    readonly updated_at: FieldRef<"UserWallet", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * UserWallet findUnique
+   */
+  export type UserWalletFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserWallet
+     */
+    select?: UserWalletSelect<ExtArgs> | null
+    /**
+     * Filter, which UserWallet to fetch.
+     */
+    where: UserWalletWhereUniqueInput
+  }
+
+  /**
+   * UserWallet findUniqueOrThrow
+   */
+  export type UserWalletFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserWallet
+     */
+    select?: UserWalletSelect<ExtArgs> | null
+    /**
+     * Filter, which UserWallet to fetch.
+     */
+    where: UserWalletWhereUniqueInput
+  }
+
+  /**
+   * UserWallet findFirst
+   */
+  export type UserWalletFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserWallet
+     */
+    select?: UserWalletSelect<ExtArgs> | null
+    /**
+     * Filter, which UserWallet to fetch.
+     */
+    where?: UserWalletWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserWallets to fetch.
+     */
+    orderBy?: UserWalletOrderByWithRelationInput | UserWalletOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserWallets.
+     */
+    cursor?: UserWalletWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserWallets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserWallets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserWallets.
+     */
+    distinct?: UserWalletScalarFieldEnum | UserWalletScalarFieldEnum[]
+  }
+
+  /**
+   * UserWallet findFirstOrThrow
+   */
+  export type UserWalletFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserWallet
+     */
+    select?: UserWalletSelect<ExtArgs> | null
+    /**
+     * Filter, which UserWallet to fetch.
+     */
+    where?: UserWalletWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserWallets to fetch.
+     */
+    orderBy?: UserWalletOrderByWithRelationInput | UserWalletOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserWallets.
+     */
+    cursor?: UserWalletWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserWallets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserWallets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserWallets.
+     */
+    distinct?: UserWalletScalarFieldEnum | UserWalletScalarFieldEnum[]
+  }
+
+  /**
+   * UserWallet findMany
+   */
+  export type UserWalletFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserWallet
+     */
+    select?: UserWalletSelect<ExtArgs> | null
+    /**
+     * Filter, which UserWallets to fetch.
+     */
+    where?: UserWalletWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserWallets to fetch.
+     */
+    orderBy?: UserWalletOrderByWithRelationInput | UserWalletOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing UserWallets.
+     */
+    cursor?: UserWalletWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserWallets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserWallets.
+     */
+    skip?: number
+    distinct?: UserWalletScalarFieldEnum | UserWalletScalarFieldEnum[]
+  }
+
+  /**
+   * UserWallet create
+   */
+  export type UserWalletCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserWallet
+     */
+    select?: UserWalletSelect<ExtArgs> | null
+    /**
+     * The data needed to create a UserWallet.
+     */
+    data: XOR<UserWalletCreateInput, UserWalletUncheckedCreateInput>
+  }
+
+  /**
+   * UserWallet createMany
+   */
+  export type UserWalletCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many UserWallets.
+     */
+    data: UserWalletCreateManyInput | UserWalletCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * UserWallet createManyAndReturn
+   */
+  export type UserWalletCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserWallet
+     */
+    select?: UserWalletSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many UserWallets.
+     */
+    data: UserWalletCreateManyInput | UserWalletCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * UserWallet update
+   */
+  export type UserWalletUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserWallet
+     */
+    select?: UserWalletSelect<ExtArgs> | null
+    /**
+     * The data needed to update a UserWallet.
+     */
+    data: XOR<UserWalletUpdateInput, UserWalletUncheckedUpdateInput>
+    /**
+     * Choose, which UserWallet to update.
+     */
+    where: UserWalletWhereUniqueInput
+  }
+
+  /**
+   * UserWallet updateMany
+   */
+  export type UserWalletUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update UserWallets.
+     */
+    data: XOR<UserWalletUpdateManyMutationInput, UserWalletUncheckedUpdateManyInput>
+    /**
+     * Filter which UserWallets to update
+     */
+    where?: UserWalletWhereInput
+  }
+
+  /**
+   * UserWallet upsert
+   */
+  export type UserWalletUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserWallet
+     */
+    select?: UserWalletSelect<ExtArgs> | null
+    /**
+     * The filter to search for the UserWallet to update in case it exists.
+     */
+    where: UserWalletWhereUniqueInput
+    /**
+     * In case the UserWallet found by the `where` argument doesn't exist, create a new UserWallet with this data.
+     */
+    create: XOR<UserWalletCreateInput, UserWalletUncheckedCreateInput>
+    /**
+     * In case the UserWallet was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<UserWalletUpdateInput, UserWalletUncheckedUpdateInput>
+  }
+
+  /**
+   * UserWallet delete
+   */
+  export type UserWalletDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserWallet
+     */
+    select?: UserWalletSelect<ExtArgs> | null
+    /**
+     * Filter which UserWallet to delete.
+     */
+    where: UserWalletWhereUniqueInput
+  }
+
+  /**
+   * UserWallet deleteMany
+   */
+  export type UserWalletDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserWallets to delete
+     */
+    where?: UserWalletWhereInput
+  }
+
+  /**
+   * UserWallet without action
+   */
+  export type UserWalletDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserWallet
+     */
+    select?: UserWalletSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Model UserBalanceHistory
+   */
+
+  export type AggregateUserBalanceHistory = {
+    _count: UserBalanceHistoryCountAggregateOutputType | null
+    _avg: UserBalanceHistoryAvgAggregateOutputType | null
+    _sum: UserBalanceHistorySumAggregateOutputType | null
+    _min: UserBalanceHistoryMinAggregateOutputType | null
+    _max: UserBalanceHistoryMaxAggregateOutputType | null
+  }
+
+  export type UserBalanceHistoryAvgAggregateOutputType = {
+    id: number | null
+    wallet_type: number | null
+  }
+
+  export type UserBalanceHistorySumAggregateOutputType = {
+    id: number | null
+    wallet_type: number | null
+  }
+
+  export type UserBalanceHistoryMinAggregateOutputType = {
+    id: number | null
+    user_id: string | null
+    balance: string | null
+    price: string | null
+    assert: string | null
+    token_id: string | null
+    wallet_type: number | null
+    count_date: string | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type UserBalanceHistoryMaxAggregateOutputType = {
+    id: number | null
+    user_id: string | null
+    balance: string | null
+    price: string | null
+    assert: string | null
+    token_id: string | null
+    wallet_type: number | null
+    count_date: string | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type UserBalanceHistoryCountAggregateOutputType = {
+    id: number
+    user_id: number
+    balance: number
+    price: number
+    assert: number
+    token_id: number
+    wallet_type: number
+    count_date: number
+    created_at: number
+    updated_at: number
+    _all: number
+  }
+
+
+  export type UserBalanceHistoryAvgAggregateInputType = {
+    id?: true
+    wallet_type?: true
+  }
+
+  export type UserBalanceHistorySumAggregateInputType = {
+    id?: true
+    wallet_type?: true
+  }
+
+  export type UserBalanceHistoryMinAggregateInputType = {
+    id?: true
+    user_id?: true
+    balance?: true
+    price?: true
+    assert?: true
+    token_id?: true
+    wallet_type?: true
+    count_date?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type UserBalanceHistoryMaxAggregateInputType = {
+    id?: true
+    user_id?: true
+    balance?: true
+    price?: true
+    assert?: true
+    token_id?: true
+    wallet_type?: true
+    count_date?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type UserBalanceHistoryCountAggregateInputType = {
+    id?: true
+    user_id?: true
+    balance?: true
+    price?: true
+    assert?: true
+    token_id?: true
+    wallet_type?: true
+    count_date?: true
+    created_at?: true
+    updated_at?: true
+    _all?: true
+  }
+
+  export type UserBalanceHistoryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserBalanceHistory to aggregate.
+     */
+    where?: UserBalanceHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserBalanceHistories to fetch.
+     */
+    orderBy?: UserBalanceHistoryOrderByWithRelationInput | UserBalanceHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: UserBalanceHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserBalanceHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserBalanceHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned UserBalanceHistories
+    **/
+    _count?: true | UserBalanceHistoryCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: UserBalanceHistoryAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: UserBalanceHistorySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: UserBalanceHistoryMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: UserBalanceHistoryMaxAggregateInputType
+  }
+
+  export type GetUserBalanceHistoryAggregateType<T extends UserBalanceHistoryAggregateArgs> = {
+        [P in keyof T & keyof AggregateUserBalanceHistory]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUserBalanceHistory[P]>
+      : GetScalarType<T[P], AggregateUserBalanceHistory[P]>
+  }
+
+
+
+
+  export type UserBalanceHistoryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserBalanceHistoryWhereInput
+    orderBy?: UserBalanceHistoryOrderByWithAggregationInput | UserBalanceHistoryOrderByWithAggregationInput[]
+    by: UserBalanceHistoryScalarFieldEnum[] | UserBalanceHistoryScalarFieldEnum
+    having?: UserBalanceHistoryScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: UserBalanceHistoryCountAggregateInputType | true
+    _avg?: UserBalanceHistoryAvgAggregateInputType
+    _sum?: UserBalanceHistorySumAggregateInputType
+    _min?: UserBalanceHistoryMinAggregateInputType
+    _max?: UserBalanceHistoryMaxAggregateInputType
+  }
+
+  export type UserBalanceHistoryGroupByOutputType = {
+    id: number
+    user_id: string
+    balance: string
+    price: string
+    assert: string
+    token_id: string
+    wallet_type: number
+    count_date: string
+    created_at: Date | null
+    updated_at: Date
+    _count: UserBalanceHistoryCountAggregateOutputType | null
+    _avg: UserBalanceHistoryAvgAggregateOutputType | null
+    _sum: UserBalanceHistorySumAggregateOutputType | null
+    _min: UserBalanceHistoryMinAggregateOutputType | null
+    _max: UserBalanceHistoryMaxAggregateOutputType | null
+  }
+
+  type GetUserBalanceHistoryGroupByPayload<T extends UserBalanceHistoryGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<UserBalanceHistoryGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof UserBalanceHistoryGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], UserBalanceHistoryGroupByOutputType[P]>
+            : GetScalarType<T[P], UserBalanceHistoryGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type UserBalanceHistorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    balance?: boolean
+    price?: boolean
+    assert?: boolean
+    token_id?: boolean
+    wallet_type?: boolean
+    count_date?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    token?: boolean | UserBalanceHistory$tokenArgs<ExtArgs>
+  }, ExtArgs["result"]["userBalanceHistory"]>
+
+  export type UserBalanceHistorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    balance?: boolean
+    price?: boolean
+    assert?: boolean
+    token_id?: boolean
+    wallet_type?: boolean
+    count_date?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    token?: boolean | UserBalanceHistory$tokenArgs<ExtArgs>
+  }, ExtArgs["result"]["userBalanceHistory"]>
+
+  export type UserBalanceHistorySelectScalar = {
+    id?: boolean
+    user_id?: boolean
+    balance?: boolean
+    price?: boolean
+    assert?: boolean
+    token_id?: boolean
+    wallet_type?: boolean
+    count_date?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+  }
+
+  export type UserBalanceHistoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    token?: boolean | UserBalanceHistory$tokenArgs<ExtArgs>
+  }
+  export type UserBalanceHistoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    token?: boolean | UserBalanceHistory$tokenArgs<ExtArgs>
+  }
+
+  export type $UserBalanceHistoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "UserBalanceHistory"
+    objects: {
+      token: Prisma.$TokenPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      user_id: string
+      balance: string
+      price: string
+      assert: string
+      token_id: string
+      wallet_type: number
+      count_date: string
+      created_at: Date | null
+      updated_at: Date
+    }, ExtArgs["result"]["userBalanceHistory"]>
+    composites: {}
+  }
+
+  type UserBalanceHistoryGetPayload<S extends boolean | null | undefined | UserBalanceHistoryDefaultArgs> = $Result.GetResult<Prisma.$UserBalanceHistoryPayload, S>
+
+  type UserBalanceHistoryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<UserBalanceHistoryFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: UserBalanceHistoryCountAggregateInputType | true
+    }
+
+  export interface UserBalanceHistoryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['UserBalanceHistory'], meta: { name: 'UserBalanceHistory' } }
+    /**
+     * Find zero or one UserBalanceHistory that matches the filter.
+     * @param {UserBalanceHistoryFindUniqueArgs} args - Arguments to find a UserBalanceHistory
+     * @example
+     * // Get one UserBalanceHistory
+     * const userBalanceHistory = await prisma.userBalanceHistory.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends UserBalanceHistoryFindUniqueArgs>(args: SelectSubset<T, UserBalanceHistoryFindUniqueArgs<ExtArgs>>): Prisma__UserBalanceHistoryClient<$Result.GetResult<Prisma.$UserBalanceHistoryPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one UserBalanceHistory that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {UserBalanceHistoryFindUniqueOrThrowArgs} args - Arguments to find a UserBalanceHistory
+     * @example
+     * // Get one UserBalanceHistory
+     * const userBalanceHistory = await prisma.userBalanceHistory.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends UserBalanceHistoryFindUniqueOrThrowArgs>(args: SelectSubset<T, UserBalanceHistoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UserBalanceHistoryClient<$Result.GetResult<Prisma.$UserBalanceHistoryPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first UserBalanceHistory that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserBalanceHistoryFindFirstArgs} args - Arguments to find a UserBalanceHistory
+     * @example
+     * // Get one UserBalanceHistory
+     * const userBalanceHistory = await prisma.userBalanceHistory.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends UserBalanceHistoryFindFirstArgs>(args?: SelectSubset<T, UserBalanceHistoryFindFirstArgs<ExtArgs>>): Prisma__UserBalanceHistoryClient<$Result.GetResult<Prisma.$UserBalanceHistoryPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first UserBalanceHistory that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserBalanceHistoryFindFirstOrThrowArgs} args - Arguments to find a UserBalanceHistory
+     * @example
+     * // Get one UserBalanceHistory
+     * const userBalanceHistory = await prisma.userBalanceHistory.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends UserBalanceHistoryFindFirstOrThrowArgs>(args?: SelectSubset<T, UserBalanceHistoryFindFirstOrThrowArgs<ExtArgs>>): Prisma__UserBalanceHistoryClient<$Result.GetResult<Prisma.$UserBalanceHistoryPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more UserBalanceHistories that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserBalanceHistoryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all UserBalanceHistories
+     * const userBalanceHistories = await prisma.userBalanceHistory.findMany()
+     * 
+     * // Get first 10 UserBalanceHistories
+     * const userBalanceHistories = await prisma.userBalanceHistory.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const userBalanceHistoryWithIdOnly = await prisma.userBalanceHistory.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends UserBalanceHistoryFindManyArgs>(args?: SelectSubset<T, UserBalanceHistoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserBalanceHistoryPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a UserBalanceHistory.
+     * @param {UserBalanceHistoryCreateArgs} args - Arguments to create a UserBalanceHistory.
+     * @example
+     * // Create one UserBalanceHistory
+     * const UserBalanceHistory = await prisma.userBalanceHistory.create({
+     *   data: {
+     *     // ... data to create a UserBalanceHistory
+     *   }
+     * })
+     * 
+     */
+    create<T extends UserBalanceHistoryCreateArgs>(args: SelectSubset<T, UserBalanceHistoryCreateArgs<ExtArgs>>): Prisma__UserBalanceHistoryClient<$Result.GetResult<Prisma.$UserBalanceHistoryPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many UserBalanceHistories.
+     * @param {UserBalanceHistoryCreateManyArgs} args - Arguments to create many UserBalanceHistories.
+     * @example
+     * // Create many UserBalanceHistories
+     * const userBalanceHistory = await prisma.userBalanceHistory.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends UserBalanceHistoryCreateManyArgs>(args?: SelectSubset<T, UserBalanceHistoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many UserBalanceHistories and returns the data saved in the database.
+     * @param {UserBalanceHistoryCreateManyAndReturnArgs} args - Arguments to create many UserBalanceHistories.
+     * @example
+     * // Create many UserBalanceHistories
+     * const userBalanceHistory = await prisma.userBalanceHistory.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many UserBalanceHistories and only return the `id`
+     * const userBalanceHistoryWithIdOnly = await prisma.userBalanceHistory.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends UserBalanceHistoryCreateManyAndReturnArgs>(args?: SelectSubset<T, UserBalanceHistoryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserBalanceHistoryPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a UserBalanceHistory.
+     * @param {UserBalanceHistoryDeleteArgs} args - Arguments to delete one UserBalanceHistory.
+     * @example
+     * // Delete one UserBalanceHistory
+     * const UserBalanceHistory = await prisma.userBalanceHistory.delete({
+     *   where: {
+     *     // ... filter to delete one UserBalanceHistory
+     *   }
+     * })
+     * 
+     */
+    delete<T extends UserBalanceHistoryDeleteArgs>(args: SelectSubset<T, UserBalanceHistoryDeleteArgs<ExtArgs>>): Prisma__UserBalanceHistoryClient<$Result.GetResult<Prisma.$UserBalanceHistoryPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one UserBalanceHistory.
+     * @param {UserBalanceHistoryUpdateArgs} args - Arguments to update one UserBalanceHistory.
+     * @example
+     * // Update one UserBalanceHistory
+     * const userBalanceHistory = await prisma.userBalanceHistory.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends UserBalanceHistoryUpdateArgs>(args: SelectSubset<T, UserBalanceHistoryUpdateArgs<ExtArgs>>): Prisma__UserBalanceHistoryClient<$Result.GetResult<Prisma.$UserBalanceHistoryPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more UserBalanceHistories.
+     * @param {UserBalanceHistoryDeleteManyArgs} args - Arguments to filter UserBalanceHistories to delete.
+     * @example
+     * // Delete a few UserBalanceHistories
+     * const { count } = await prisma.userBalanceHistory.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends UserBalanceHistoryDeleteManyArgs>(args?: SelectSubset<T, UserBalanceHistoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more UserBalanceHistories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserBalanceHistoryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many UserBalanceHistories
+     * const userBalanceHistory = await prisma.userBalanceHistory.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends UserBalanceHistoryUpdateManyArgs>(args: SelectSubset<T, UserBalanceHistoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one UserBalanceHistory.
+     * @param {UserBalanceHistoryUpsertArgs} args - Arguments to update or create a UserBalanceHistory.
+     * @example
+     * // Update or create a UserBalanceHistory
+     * const userBalanceHistory = await prisma.userBalanceHistory.upsert({
+     *   create: {
+     *     // ... data to create a UserBalanceHistory
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the UserBalanceHistory we want to update
+     *   }
+     * })
+     */
+    upsert<T extends UserBalanceHistoryUpsertArgs>(args: SelectSubset<T, UserBalanceHistoryUpsertArgs<ExtArgs>>): Prisma__UserBalanceHistoryClient<$Result.GetResult<Prisma.$UserBalanceHistoryPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of UserBalanceHistories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserBalanceHistoryCountArgs} args - Arguments to filter UserBalanceHistories to count.
+     * @example
+     * // Count the number of UserBalanceHistories
+     * const count = await prisma.userBalanceHistory.count({
+     *   where: {
+     *     // ... the filter for the UserBalanceHistories we want to count
+     *   }
+     * })
+    **/
+    count<T extends UserBalanceHistoryCountArgs>(
+      args?: Subset<T, UserBalanceHistoryCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], UserBalanceHistoryCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a UserBalanceHistory.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserBalanceHistoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends UserBalanceHistoryAggregateArgs>(args: Subset<T, UserBalanceHistoryAggregateArgs>): Prisma.PrismaPromise<GetUserBalanceHistoryAggregateType<T>>
+
+    /**
+     * Group by UserBalanceHistory.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserBalanceHistoryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends UserBalanceHistoryGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: UserBalanceHistoryGroupByArgs['orderBy'] }
+        : { orderBy?: UserBalanceHistoryGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, UserBalanceHistoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserBalanceHistoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the UserBalanceHistory model
+   */
+  readonly fields: UserBalanceHistoryFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for UserBalanceHistory.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__UserBalanceHistoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    token<T extends UserBalanceHistory$tokenArgs<ExtArgs> = {}>(args?: Subset<T, UserBalanceHistory$tokenArgs<ExtArgs>>): Prisma__TokenClient<$Result.GetResult<Prisma.$TokenPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the UserBalanceHistory model
+   */ 
+  interface UserBalanceHistoryFieldRefs {
+    readonly id: FieldRef<"UserBalanceHistory", 'Int'>
+    readonly user_id: FieldRef<"UserBalanceHistory", 'String'>
+    readonly balance: FieldRef<"UserBalanceHistory", 'String'>
+    readonly price: FieldRef<"UserBalanceHistory", 'String'>
+    readonly assert: FieldRef<"UserBalanceHistory", 'String'>
+    readonly token_id: FieldRef<"UserBalanceHistory", 'String'>
+    readonly wallet_type: FieldRef<"UserBalanceHistory", 'Int'>
+    readonly count_date: FieldRef<"UserBalanceHistory", 'String'>
+    readonly created_at: FieldRef<"UserBalanceHistory", 'DateTime'>
+    readonly updated_at: FieldRef<"UserBalanceHistory", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * UserBalanceHistory findUnique
+   */
+  export type UserBalanceHistoryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserBalanceHistory
+     */
+    select?: UserBalanceHistorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserBalanceHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which UserBalanceHistory to fetch.
+     */
+    where: UserBalanceHistoryWhereUniqueInput
+  }
+
+  /**
+   * UserBalanceHistory findUniqueOrThrow
+   */
+  export type UserBalanceHistoryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserBalanceHistory
+     */
+    select?: UserBalanceHistorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserBalanceHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which UserBalanceHistory to fetch.
+     */
+    where: UserBalanceHistoryWhereUniqueInput
+  }
+
+  /**
+   * UserBalanceHistory findFirst
+   */
+  export type UserBalanceHistoryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserBalanceHistory
+     */
+    select?: UserBalanceHistorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserBalanceHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which UserBalanceHistory to fetch.
+     */
+    where?: UserBalanceHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserBalanceHistories to fetch.
+     */
+    orderBy?: UserBalanceHistoryOrderByWithRelationInput | UserBalanceHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserBalanceHistories.
+     */
+    cursor?: UserBalanceHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserBalanceHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserBalanceHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserBalanceHistories.
+     */
+    distinct?: UserBalanceHistoryScalarFieldEnum | UserBalanceHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * UserBalanceHistory findFirstOrThrow
+   */
+  export type UserBalanceHistoryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserBalanceHistory
+     */
+    select?: UserBalanceHistorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserBalanceHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which UserBalanceHistory to fetch.
+     */
+    where?: UserBalanceHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserBalanceHistories to fetch.
+     */
+    orderBy?: UserBalanceHistoryOrderByWithRelationInput | UserBalanceHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserBalanceHistories.
+     */
+    cursor?: UserBalanceHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserBalanceHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserBalanceHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserBalanceHistories.
+     */
+    distinct?: UserBalanceHistoryScalarFieldEnum | UserBalanceHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * UserBalanceHistory findMany
+   */
+  export type UserBalanceHistoryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserBalanceHistory
+     */
+    select?: UserBalanceHistorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserBalanceHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which UserBalanceHistories to fetch.
+     */
+    where?: UserBalanceHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserBalanceHistories to fetch.
+     */
+    orderBy?: UserBalanceHistoryOrderByWithRelationInput | UserBalanceHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing UserBalanceHistories.
+     */
+    cursor?: UserBalanceHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserBalanceHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserBalanceHistories.
+     */
+    skip?: number
+    distinct?: UserBalanceHistoryScalarFieldEnum | UserBalanceHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * UserBalanceHistory create
+   */
+  export type UserBalanceHistoryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserBalanceHistory
+     */
+    select?: UserBalanceHistorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserBalanceHistoryInclude<ExtArgs> | null
+    /**
+     * The data needed to create a UserBalanceHistory.
+     */
+    data: XOR<UserBalanceHistoryCreateInput, UserBalanceHistoryUncheckedCreateInput>
+  }
+
+  /**
+   * UserBalanceHistory createMany
+   */
+  export type UserBalanceHistoryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many UserBalanceHistories.
+     */
+    data: UserBalanceHistoryCreateManyInput | UserBalanceHistoryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * UserBalanceHistory createManyAndReturn
+   */
+  export type UserBalanceHistoryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserBalanceHistory
+     */
+    select?: UserBalanceHistorySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many UserBalanceHistories.
+     */
+    data: UserBalanceHistoryCreateManyInput | UserBalanceHistoryCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserBalanceHistoryIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * UserBalanceHistory update
+   */
+  export type UserBalanceHistoryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserBalanceHistory
+     */
+    select?: UserBalanceHistorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserBalanceHistoryInclude<ExtArgs> | null
+    /**
+     * The data needed to update a UserBalanceHistory.
+     */
+    data: XOR<UserBalanceHistoryUpdateInput, UserBalanceHistoryUncheckedUpdateInput>
+    /**
+     * Choose, which UserBalanceHistory to update.
+     */
+    where: UserBalanceHistoryWhereUniqueInput
+  }
+
+  /**
+   * UserBalanceHistory updateMany
+   */
+  export type UserBalanceHistoryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update UserBalanceHistories.
+     */
+    data: XOR<UserBalanceHistoryUpdateManyMutationInput, UserBalanceHistoryUncheckedUpdateManyInput>
+    /**
+     * Filter which UserBalanceHistories to update
+     */
+    where?: UserBalanceHistoryWhereInput
+  }
+
+  /**
+   * UserBalanceHistory upsert
+   */
+  export type UserBalanceHistoryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserBalanceHistory
+     */
+    select?: UserBalanceHistorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserBalanceHistoryInclude<ExtArgs> | null
+    /**
+     * The filter to search for the UserBalanceHistory to update in case it exists.
+     */
+    where: UserBalanceHistoryWhereUniqueInput
+    /**
+     * In case the UserBalanceHistory found by the `where` argument doesn't exist, create a new UserBalanceHistory with this data.
+     */
+    create: XOR<UserBalanceHistoryCreateInput, UserBalanceHistoryUncheckedCreateInput>
+    /**
+     * In case the UserBalanceHistory was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<UserBalanceHistoryUpdateInput, UserBalanceHistoryUncheckedUpdateInput>
+  }
+
+  /**
+   * UserBalanceHistory delete
+   */
+  export type UserBalanceHistoryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserBalanceHistory
+     */
+    select?: UserBalanceHistorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserBalanceHistoryInclude<ExtArgs> | null
+    /**
+     * Filter which UserBalanceHistory to delete.
+     */
+    where: UserBalanceHistoryWhereUniqueInput
+  }
+
+  /**
+   * UserBalanceHistory deleteMany
+   */
+  export type UserBalanceHistoryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserBalanceHistories to delete
+     */
+    where?: UserBalanceHistoryWhereInput
+  }
+
+  /**
+   * UserBalanceHistory.token
+   */
+  export type UserBalanceHistory$tokenArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Token
+     */
+    select?: TokenSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TokenInclude<ExtArgs> | null
+    where?: TokenWhereInput
+  }
+
+  /**
+   * UserBalanceHistory without action
+   */
+  export type UserBalanceHistoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserBalanceHistory
+     */
+    select?: UserBalanceHistorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserBalanceHistoryInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -5216,6 +7419,34 @@ export namespace Prisma {
   };
 
   export type TokenSubscribeScalarFieldEnum = (typeof TokenSubscribeScalarFieldEnum)[keyof typeof TokenSubscribeScalarFieldEnum]
+
+
+  export const UserWalletScalarFieldEnum: {
+    id: 'id',
+    user_id: 'user_id',
+    address: 'address',
+    wallet_type: 'wallet_type',
+    created_at: 'created_at',
+    updated_at: 'updated_at'
+  };
+
+  export type UserWalletScalarFieldEnum = (typeof UserWalletScalarFieldEnum)[keyof typeof UserWalletScalarFieldEnum]
+
+
+  export const UserBalanceHistoryScalarFieldEnum: {
+    id: 'id',
+    user_id: 'user_id',
+    balance: 'balance',
+    price: 'price',
+    assert: 'assert',
+    token_id: 'token_id',
+    wallet_type: 'wallet_type',
+    count_date: 'count_date',
+    created_at: 'created_at',
+    updated_at: 'updated_at'
+  };
+
+  export type UserBalanceHistoryScalarFieldEnum = (typeof UserBalanceHistoryScalarFieldEnum)[keyof typeof UserBalanceHistoryScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -5466,6 +7697,7 @@ export namespace Prisma {
     created_at?: DateTimeFilter<"Token"> | Date | string
     updated_at?: DateTimeFilter<"Token"> | Date | string
     chain?: XOR<ChainNullableRelationFilter, ChainWhereInput> | null
+    UserBalanceHistory?: UserBalanceHistoryListRelationFilter
   }
 
   export type TokenOrderByWithRelationInput = {
@@ -5483,6 +7715,7 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrder
     chain?: ChainOrderByWithRelationInput
+    UserBalanceHistory?: UserBalanceHistoryOrderByRelationAggregateInput
   }
 
   export type TokenWhereUniqueInput = Prisma.AtLeast<{
@@ -5503,6 +7736,7 @@ export namespace Prisma {
     created_at?: DateTimeFilter<"Token"> | Date | string
     updated_at?: DateTimeFilter<"Token"> | Date | string
     chain?: XOR<ChainNullableRelationFilter, ChainWhereInput> | null
+    UserBalanceHistory?: UserBalanceHistoryListRelationFilter
   }, "id">
 
   export type TokenOrderByWithAggregationInput = {
@@ -5597,6 +7831,148 @@ export namespace Prisma {
     address?: StringWithAggregatesFilter<"TokenSubscribe"> | string
     created_at?: DateTimeNullableWithAggregatesFilter<"TokenSubscribe"> | Date | string | null
     updated_at?: DateTimeWithAggregatesFilter<"TokenSubscribe"> | Date | string
+  }
+
+  export type UserWalletWhereInput = {
+    AND?: UserWalletWhereInput | UserWalletWhereInput[]
+    OR?: UserWalletWhereInput[]
+    NOT?: UserWalletWhereInput | UserWalletWhereInput[]
+    id?: IntFilter<"UserWallet"> | number
+    user_id?: StringFilter<"UserWallet"> | string
+    address?: StringFilter<"UserWallet"> | string
+    wallet_type?: IntFilter<"UserWallet"> | number
+    created_at?: DateTimeNullableFilter<"UserWallet"> | Date | string | null
+    updated_at?: DateTimeFilter<"UserWallet"> | Date | string
+  }
+
+  export type UserWalletOrderByWithRelationInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    address?: SortOrder
+    wallet_type?: SortOrder
+    created_at?: SortOrderInput | SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type UserWalletWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    address_wallet_type?: UserWalletAddressWallet_typeCompoundUniqueInput
+    AND?: UserWalletWhereInput | UserWalletWhereInput[]
+    OR?: UserWalletWhereInput[]
+    NOT?: UserWalletWhereInput | UserWalletWhereInput[]
+    user_id?: StringFilter<"UserWallet"> | string
+    address?: StringFilter<"UserWallet"> | string
+    wallet_type?: IntFilter<"UserWallet"> | number
+    created_at?: DateTimeNullableFilter<"UserWallet"> | Date | string | null
+    updated_at?: DateTimeFilter<"UserWallet"> | Date | string
+  }, "id" | "address_wallet_type">
+
+  export type UserWalletOrderByWithAggregationInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    address?: SortOrder
+    wallet_type?: SortOrder
+    created_at?: SortOrderInput | SortOrder
+    updated_at?: SortOrder
+    _count?: UserWalletCountOrderByAggregateInput
+    _avg?: UserWalletAvgOrderByAggregateInput
+    _max?: UserWalletMaxOrderByAggregateInput
+    _min?: UserWalletMinOrderByAggregateInput
+    _sum?: UserWalletSumOrderByAggregateInput
+  }
+
+  export type UserWalletScalarWhereWithAggregatesInput = {
+    AND?: UserWalletScalarWhereWithAggregatesInput | UserWalletScalarWhereWithAggregatesInput[]
+    OR?: UserWalletScalarWhereWithAggregatesInput[]
+    NOT?: UserWalletScalarWhereWithAggregatesInput | UserWalletScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"UserWallet"> | number
+    user_id?: StringWithAggregatesFilter<"UserWallet"> | string
+    address?: StringWithAggregatesFilter<"UserWallet"> | string
+    wallet_type?: IntWithAggregatesFilter<"UserWallet"> | number
+    created_at?: DateTimeNullableWithAggregatesFilter<"UserWallet"> | Date | string | null
+    updated_at?: DateTimeWithAggregatesFilter<"UserWallet"> | Date | string
+  }
+
+  export type UserBalanceHistoryWhereInput = {
+    AND?: UserBalanceHistoryWhereInput | UserBalanceHistoryWhereInput[]
+    OR?: UserBalanceHistoryWhereInput[]
+    NOT?: UserBalanceHistoryWhereInput | UserBalanceHistoryWhereInput[]
+    id?: IntFilter<"UserBalanceHistory"> | number
+    user_id?: StringFilter<"UserBalanceHistory"> | string
+    balance?: StringFilter<"UserBalanceHistory"> | string
+    price?: StringFilter<"UserBalanceHistory"> | string
+    assert?: StringFilter<"UserBalanceHistory"> | string
+    token_id?: StringFilter<"UserBalanceHistory"> | string
+    wallet_type?: IntFilter<"UserBalanceHistory"> | number
+    count_date?: StringFilter<"UserBalanceHistory"> | string
+    created_at?: DateTimeNullableFilter<"UserBalanceHistory"> | Date | string | null
+    updated_at?: DateTimeFilter<"UserBalanceHistory"> | Date | string
+    token?: XOR<TokenNullableRelationFilter, TokenWhereInput> | null
+  }
+
+  export type UserBalanceHistoryOrderByWithRelationInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    balance?: SortOrder
+    price?: SortOrder
+    assert?: SortOrder
+    token_id?: SortOrder
+    wallet_type?: SortOrder
+    count_date?: SortOrder
+    created_at?: SortOrderInput | SortOrder
+    updated_at?: SortOrder
+    token?: TokenOrderByWithRelationInput
+  }
+
+  export type UserBalanceHistoryWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: UserBalanceHistoryWhereInput | UserBalanceHistoryWhereInput[]
+    OR?: UserBalanceHistoryWhereInput[]
+    NOT?: UserBalanceHistoryWhereInput | UserBalanceHistoryWhereInput[]
+    user_id?: StringFilter<"UserBalanceHistory"> | string
+    balance?: StringFilter<"UserBalanceHistory"> | string
+    price?: StringFilter<"UserBalanceHistory"> | string
+    assert?: StringFilter<"UserBalanceHistory"> | string
+    token_id?: StringFilter<"UserBalanceHistory"> | string
+    wallet_type?: IntFilter<"UserBalanceHistory"> | number
+    count_date?: StringFilter<"UserBalanceHistory"> | string
+    created_at?: DateTimeNullableFilter<"UserBalanceHistory"> | Date | string | null
+    updated_at?: DateTimeFilter<"UserBalanceHistory"> | Date | string
+    token?: XOR<TokenNullableRelationFilter, TokenWhereInput> | null
+  }, "id">
+
+  export type UserBalanceHistoryOrderByWithAggregationInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    balance?: SortOrder
+    price?: SortOrder
+    assert?: SortOrder
+    token_id?: SortOrder
+    wallet_type?: SortOrder
+    count_date?: SortOrder
+    created_at?: SortOrderInput | SortOrder
+    updated_at?: SortOrder
+    _count?: UserBalanceHistoryCountOrderByAggregateInput
+    _avg?: UserBalanceHistoryAvgOrderByAggregateInput
+    _max?: UserBalanceHistoryMaxOrderByAggregateInput
+    _min?: UserBalanceHistoryMinOrderByAggregateInput
+    _sum?: UserBalanceHistorySumOrderByAggregateInput
+  }
+
+  export type UserBalanceHistoryScalarWhereWithAggregatesInput = {
+    AND?: UserBalanceHistoryScalarWhereWithAggregatesInput | UserBalanceHistoryScalarWhereWithAggregatesInput[]
+    OR?: UserBalanceHistoryScalarWhereWithAggregatesInput[]
+    NOT?: UserBalanceHistoryScalarWhereWithAggregatesInput | UserBalanceHistoryScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"UserBalanceHistory"> | number
+    user_id?: StringWithAggregatesFilter<"UserBalanceHistory"> | string
+    balance?: StringWithAggregatesFilter<"UserBalanceHistory"> | string
+    price?: StringWithAggregatesFilter<"UserBalanceHistory"> | string
+    assert?: StringWithAggregatesFilter<"UserBalanceHistory"> | string
+    token_id?: StringWithAggregatesFilter<"UserBalanceHistory"> | string
+    wallet_type?: IntWithAggregatesFilter<"UserBalanceHistory"> | number
+    count_date?: StringWithAggregatesFilter<"UserBalanceHistory"> | string
+    created_at?: DateTimeNullableWithAggregatesFilter<"UserBalanceHistory"> | Date | string | null
+    updated_at?: DateTimeWithAggregatesFilter<"UserBalanceHistory"> | Date | string
   }
 
   export type ChainCreateInput = {
@@ -5760,6 +8136,7 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     chain?: ChainCreateNestedOneWithoutTokensInput
+    UserBalanceHistory?: UserBalanceHistoryCreateNestedManyWithoutTokenInput
   }
 
   export type TokenUncheckedCreateInput = {
@@ -5776,6 +8153,7 @@ export namespace Prisma {
     default_subscribe?: number
     created_at?: Date | string
     updated_at?: Date | string
+    UserBalanceHistory?: UserBalanceHistoryUncheckedCreateNestedManyWithoutTokenInput
   }
 
   export type TokenUpdateInput = {
@@ -5792,6 +8170,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     chain?: ChainUpdateOneWithoutTokensNestedInput
+    UserBalanceHistory?: UserBalanceHistoryUpdateManyWithoutTokenNestedInput
   }
 
   export type TokenUncheckedUpdateInput = {
@@ -5808,6 +8187,7 @@ export namespace Prisma {
     default_subscribe?: IntFieldUpdateOperationsInput | number
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    UserBalanceHistory?: UserBalanceHistoryUncheckedUpdateManyWithoutTokenNestedInput
   }
 
   export type TokenCreateManyInput = {
@@ -5906,6 +8286,153 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     token_ids?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserWalletCreateInput = {
+    user_id?: string
+    address: string
+    wallet_type: number
+    created_at?: Date | string | null
+    updated_at?: Date | string
+  }
+
+  export type UserWalletUncheckedCreateInput = {
+    id?: number
+    user_id?: string
+    address: string
+    wallet_type: number
+    created_at?: Date | string | null
+    updated_at?: Date | string
+  }
+
+  export type UserWalletUpdateInput = {
+    user_id?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    wallet_type?: IntFieldUpdateOperationsInput | number
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserWalletUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    wallet_type?: IntFieldUpdateOperationsInput | number
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserWalletCreateManyInput = {
+    id?: number
+    user_id?: string
+    address: string
+    wallet_type: number
+    created_at?: Date | string | null
+    updated_at?: Date | string
+  }
+
+  export type UserWalletUpdateManyMutationInput = {
+    user_id?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    wallet_type?: IntFieldUpdateOperationsInput | number
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserWalletUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    wallet_type?: IntFieldUpdateOperationsInput | number
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserBalanceHistoryCreateInput = {
+    user_id?: string
+    balance: string
+    price: string
+    assert: string
+    wallet_type: number
+    count_date: string
+    created_at?: Date | string | null
+    updated_at?: Date | string
+    token?: TokenCreateNestedOneWithoutUserBalanceHistoryInput
+  }
+
+  export type UserBalanceHistoryUncheckedCreateInput = {
+    id?: number
+    user_id?: string
+    balance: string
+    price: string
+    assert: string
+    token_id: string
+    wallet_type: number
+    count_date: string
+    created_at?: Date | string | null
+    updated_at?: Date | string
+  }
+
+  export type UserBalanceHistoryUpdateInput = {
+    user_id?: StringFieldUpdateOperationsInput | string
+    balance?: StringFieldUpdateOperationsInput | string
+    price?: StringFieldUpdateOperationsInput | string
+    assert?: StringFieldUpdateOperationsInput | string
+    wallet_type?: IntFieldUpdateOperationsInput | number
+    count_date?: StringFieldUpdateOperationsInput | string
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    token?: TokenUpdateOneWithoutUserBalanceHistoryNestedInput
+  }
+
+  export type UserBalanceHistoryUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
+    balance?: StringFieldUpdateOperationsInput | string
+    price?: StringFieldUpdateOperationsInput | string
+    assert?: StringFieldUpdateOperationsInput | string
+    token_id?: StringFieldUpdateOperationsInput | string
+    wallet_type?: IntFieldUpdateOperationsInput | number
+    count_date?: StringFieldUpdateOperationsInput | string
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserBalanceHistoryCreateManyInput = {
+    id?: number
+    user_id?: string
+    balance: string
+    price: string
+    assert: string
+    token_id: string
+    wallet_type: number
+    count_date: string
+    created_at?: Date | string | null
+    updated_at?: Date | string
+  }
+
+  export type UserBalanceHistoryUpdateManyMutationInput = {
+    user_id?: StringFieldUpdateOperationsInput | string
+    balance?: StringFieldUpdateOperationsInput | string
+    price?: StringFieldUpdateOperationsInput | string
+    assert?: StringFieldUpdateOperationsInput | string
+    wallet_type?: IntFieldUpdateOperationsInput | number
+    count_date?: StringFieldUpdateOperationsInput | string
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserBalanceHistoryUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
+    balance?: StringFieldUpdateOperationsInput | string
+    price?: StringFieldUpdateOperationsInput | string
+    assert?: StringFieldUpdateOperationsInput | string
+    token_id?: StringFieldUpdateOperationsInput | string
+    wallet_type?: IntFieldUpdateOperationsInput | number
+    count_date?: StringFieldUpdateOperationsInput | string
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -6097,6 +8624,16 @@ export namespace Prisma {
     not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
+  export type UserBalanceHistoryListRelationFilter = {
+    every?: UserBalanceHistoryWhereInput
+    some?: UserBalanceHistoryWhereInput
+    none?: UserBalanceHistoryWhereInput
+  }
+
+  export type UserBalanceHistoryOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type TokenCountOrderByAggregateInput = {
     id?: SortOrder
     chain_id?: SortOrder
@@ -6227,6 +8764,102 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
+  export type UserWalletAddressWallet_typeCompoundUniqueInput = {
+    address: string
+    wallet_type: number
+  }
+
+  export type UserWalletCountOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    address?: SortOrder
+    wallet_type?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type UserWalletAvgOrderByAggregateInput = {
+    id?: SortOrder
+    wallet_type?: SortOrder
+  }
+
+  export type UserWalletMaxOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    address?: SortOrder
+    wallet_type?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type UserWalletMinOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    address?: SortOrder
+    wallet_type?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type UserWalletSumOrderByAggregateInput = {
+    id?: SortOrder
+    wallet_type?: SortOrder
+  }
+
+  export type TokenNullableRelationFilter = {
+    is?: TokenWhereInput | null
+    isNot?: TokenWhereInput | null
+  }
+
+  export type UserBalanceHistoryCountOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    balance?: SortOrder
+    price?: SortOrder
+    assert?: SortOrder
+    token_id?: SortOrder
+    wallet_type?: SortOrder
+    count_date?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type UserBalanceHistoryAvgOrderByAggregateInput = {
+    id?: SortOrder
+    wallet_type?: SortOrder
+  }
+
+  export type UserBalanceHistoryMaxOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    balance?: SortOrder
+    price?: SortOrder
+    assert?: SortOrder
+    token_id?: SortOrder
+    wallet_type?: SortOrder
+    count_date?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type UserBalanceHistoryMinOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    balance?: SortOrder
+    price?: SortOrder
+    assert?: SortOrder
+    token_id?: SortOrder
+    wallet_type?: SortOrder
+    count_date?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type UserBalanceHistorySumOrderByAggregateInput = {
+    id?: SortOrder
+    wallet_type?: SortOrder
+  }
+
   export type NodeCreateNestedManyWithoutChainInput = {
     create?: XOR<NodeCreateWithoutChainInput, NodeUncheckedCreateWithoutChainInput> | NodeCreateWithoutChainInput[] | NodeUncheckedCreateWithoutChainInput[]
     connectOrCreate?: NodeCreateOrConnectWithoutChainInput | NodeCreateOrConnectWithoutChainInput[]
@@ -6349,6 +8982,20 @@ export namespace Prisma {
     connect?: ChainWhereUniqueInput
   }
 
+  export type UserBalanceHistoryCreateNestedManyWithoutTokenInput = {
+    create?: XOR<UserBalanceHistoryCreateWithoutTokenInput, UserBalanceHistoryUncheckedCreateWithoutTokenInput> | UserBalanceHistoryCreateWithoutTokenInput[] | UserBalanceHistoryUncheckedCreateWithoutTokenInput[]
+    connectOrCreate?: UserBalanceHistoryCreateOrConnectWithoutTokenInput | UserBalanceHistoryCreateOrConnectWithoutTokenInput[]
+    createMany?: UserBalanceHistoryCreateManyTokenInputEnvelope
+    connect?: UserBalanceHistoryWhereUniqueInput | UserBalanceHistoryWhereUniqueInput[]
+  }
+
+  export type UserBalanceHistoryUncheckedCreateNestedManyWithoutTokenInput = {
+    create?: XOR<UserBalanceHistoryCreateWithoutTokenInput, UserBalanceHistoryUncheckedCreateWithoutTokenInput> | UserBalanceHistoryCreateWithoutTokenInput[] | UserBalanceHistoryUncheckedCreateWithoutTokenInput[]
+    connectOrCreate?: UserBalanceHistoryCreateOrConnectWithoutTokenInput | UserBalanceHistoryCreateOrConnectWithoutTokenInput[]
+    createMany?: UserBalanceHistoryCreateManyTokenInputEnvelope
+    connect?: UserBalanceHistoryWhereUniqueInput | UserBalanceHistoryWhereUniqueInput[]
+  }
+
   export type BoolFieldUpdateOperationsInput = {
     set?: boolean
   }
@@ -6363,8 +9010,52 @@ export namespace Prisma {
     update?: XOR<XOR<ChainUpdateToOneWithWhereWithoutTokensInput, ChainUpdateWithoutTokensInput>, ChainUncheckedUpdateWithoutTokensInput>
   }
 
+  export type UserBalanceHistoryUpdateManyWithoutTokenNestedInput = {
+    create?: XOR<UserBalanceHistoryCreateWithoutTokenInput, UserBalanceHistoryUncheckedCreateWithoutTokenInput> | UserBalanceHistoryCreateWithoutTokenInput[] | UserBalanceHistoryUncheckedCreateWithoutTokenInput[]
+    connectOrCreate?: UserBalanceHistoryCreateOrConnectWithoutTokenInput | UserBalanceHistoryCreateOrConnectWithoutTokenInput[]
+    upsert?: UserBalanceHistoryUpsertWithWhereUniqueWithoutTokenInput | UserBalanceHistoryUpsertWithWhereUniqueWithoutTokenInput[]
+    createMany?: UserBalanceHistoryCreateManyTokenInputEnvelope
+    set?: UserBalanceHistoryWhereUniqueInput | UserBalanceHistoryWhereUniqueInput[]
+    disconnect?: UserBalanceHistoryWhereUniqueInput | UserBalanceHistoryWhereUniqueInput[]
+    delete?: UserBalanceHistoryWhereUniqueInput | UserBalanceHistoryWhereUniqueInput[]
+    connect?: UserBalanceHistoryWhereUniqueInput | UserBalanceHistoryWhereUniqueInput[]
+    update?: UserBalanceHistoryUpdateWithWhereUniqueWithoutTokenInput | UserBalanceHistoryUpdateWithWhereUniqueWithoutTokenInput[]
+    updateMany?: UserBalanceHistoryUpdateManyWithWhereWithoutTokenInput | UserBalanceHistoryUpdateManyWithWhereWithoutTokenInput[]
+    deleteMany?: UserBalanceHistoryScalarWhereInput | UserBalanceHistoryScalarWhereInput[]
+  }
+
+  export type UserBalanceHistoryUncheckedUpdateManyWithoutTokenNestedInput = {
+    create?: XOR<UserBalanceHistoryCreateWithoutTokenInput, UserBalanceHistoryUncheckedCreateWithoutTokenInput> | UserBalanceHistoryCreateWithoutTokenInput[] | UserBalanceHistoryUncheckedCreateWithoutTokenInput[]
+    connectOrCreate?: UserBalanceHistoryCreateOrConnectWithoutTokenInput | UserBalanceHistoryCreateOrConnectWithoutTokenInput[]
+    upsert?: UserBalanceHistoryUpsertWithWhereUniqueWithoutTokenInput | UserBalanceHistoryUpsertWithWhereUniqueWithoutTokenInput[]
+    createMany?: UserBalanceHistoryCreateManyTokenInputEnvelope
+    set?: UserBalanceHistoryWhereUniqueInput | UserBalanceHistoryWhereUniqueInput[]
+    disconnect?: UserBalanceHistoryWhereUniqueInput | UserBalanceHistoryWhereUniqueInput[]
+    delete?: UserBalanceHistoryWhereUniqueInput | UserBalanceHistoryWhereUniqueInput[]
+    connect?: UserBalanceHistoryWhereUniqueInput | UserBalanceHistoryWhereUniqueInput[]
+    update?: UserBalanceHistoryUpdateWithWhereUniqueWithoutTokenInput | UserBalanceHistoryUpdateWithWhereUniqueWithoutTokenInput[]
+    updateMany?: UserBalanceHistoryUpdateManyWithWhereWithoutTokenInput | UserBalanceHistoryUpdateManyWithWhereWithoutTokenInput[]
+    deleteMany?: UserBalanceHistoryScalarWhereInput | UserBalanceHistoryScalarWhereInput[]
+  }
+
   export type NullableDateTimeFieldUpdateOperationsInput = {
     set?: Date | string | null
+  }
+
+  export type TokenCreateNestedOneWithoutUserBalanceHistoryInput = {
+    create?: XOR<TokenCreateWithoutUserBalanceHistoryInput, TokenUncheckedCreateWithoutUserBalanceHistoryInput>
+    connectOrCreate?: TokenCreateOrConnectWithoutUserBalanceHistoryInput
+    connect?: TokenWhereUniqueInput
+  }
+
+  export type TokenUpdateOneWithoutUserBalanceHistoryNestedInput = {
+    create?: XOR<TokenCreateWithoutUserBalanceHistoryInput, TokenUncheckedCreateWithoutUserBalanceHistoryInput>
+    connectOrCreate?: TokenCreateOrConnectWithoutUserBalanceHistoryInput
+    upsert?: TokenUpsertWithoutUserBalanceHistoryInput
+    disconnect?: TokenWhereInput | boolean
+    delete?: TokenWhereInput | boolean
+    connect?: TokenWhereUniqueInput
+    update?: XOR<XOR<TokenUpdateToOneWithWhereWithoutUserBalanceHistoryInput, TokenUpdateWithoutUserBalanceHistoryInput>, TokenUncheckedUpdateWithoutUserBalanceHistoryInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -6547,6 +9238,7 @@ export namespace Prisma {
     default_subscribe?: number
     created_at?: Date | string
     updated_at?: Date | string
+    UserBalanceHistory?: UserBalanceHistoryCreateNestedManyWithoutTokenInput
   }
 
   export type TokenUncheckedCreateWithoutChainInput = {
@@ -6562,6 +9254,7 @@ export namespace Prisma {
     default_subscribe?: number
     created_at?: Date | string
     updated_at?: Date | string
+    UserBalanceHistory?: UserBalanceHistoryUncheckedCreateNestedManyWithoutTokenInput
   }
 
   export type TokenCreateOrConnectWithoutChainInput = {
@@ -6735,6 +9428,39 @@ export namespace Prisma {
     create: XOR<ChainCreateWithoutTokensInput, ChainUncheckedCreateWithoutTokensInput>
   }
 
+  export type UserBalanceHistoryCreateWithoutTokenInput = {
+    user_id?: string
+    balance: string
+    price: string
+    assert: string
+    wallet_type: number
+    count_date: string
+    created_at?: Date | string | null
+    updated_at?: Date | string
+  }
+
+  export type UserBalanceHistoryUncheckedCreateWithoutTokenInput = {
+    id?: number
+    user_id?: string
+    balance: string
+    price: string
+    assert: string
+    wallet_type: number
+    count_date: string
+    created_at?: Date | string | null
+    updated_at?: Date | string
+  }
+
+  export type UserBalanceHistoryCreateOrConnectWithoutTokenInput = {
+    where: UserBalanceHistoryWhereUniqueInput
+    create: XOR<UserBalanceHistoryCreateWithoutTokenInput, UserBalanceHistoryUncheckedCreateWithoutTokenInput>
+  }
+
+  export type UserBalanceHistoryCreateManyTokenInputEnvelope = {
+    data: UserBalanceHistoryCreateManyTokenInput | UserBalanceHistoryCreateManyTokenInput[]
+    skipDuplicates?: boolean
+  }
+
   export type ChainUpsertWithoutTokensInput = {
     update: XOR<ChainUpdateWithoutTokensInput, ChainUncheckedUpdateWithoutTokensInput>
     create: XOR<ChainCreateWithoutTokensInput, ChainUncheckedCreateWithoutTokensInput>
@@ -6770,6 +9496,118 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     nodes?: NodeUncheckedUpdateManyWithoutChainNestedInput
+  }
+
+  export type UserBalanceHistoryUpsertWithWhereUniqueWithoutTokenInput = {
+    where: UserBalanceHistoryWhereUniqueInput
+    update: XOR<UserBalanceHistoryUpdateWithoutTokenInput, UserBalanceHistoryUncheckedUpdateWithoutTokenInput>
+    create: XOR<UserBalanceHistoryCreateWithoutTokenInput, UserBalanceHistoryUncheckedCreateWithoutTokenInput>
+  }
+
+  export type UserBalanceHistoryUpdateWithWhereUniqueWithoutTokenInput = {
+    where: UserBalanceHistoryWhereUniqueInput
+    data: XOR<UserBalanceHistoryUpdateWithoutTokenInput, UserBalanceHistoryUncheckedUpdateWithoutTokenInput>
+  }
+
+  export type UserBalanceHistoryUpdateManyWithWhereWithoutTokenInput = {
+    where: UserBalanceHistoryScalarWhereInput
+    data: XOR<UserBalanceHistoryUpdateManyMutationInput, UserBalanceHistoryUncheckedUpdateManyWithoutTokenInput>
+  }
+
+  export type UserBalanceHistoryScalarWhereInput = {
+    AND?: UserBalanceHistoryScalarWhereInput | UserBalanceHistoryScalarWhereInput[]
+    OR?: UserBalanceHistoryScalarWhereInput[]
+    NOT?: UserBalanceHistoryScalarWhereInput | UserBalanceHistoryScalarWhereInput[]
+    id?: IntFilter<"UserBalanceHistory"> | number
+    user_id?: StringFilter<"UserBalanceHistory"> | string
+    balance?: StringFilter<"UserBalanceHistory"> | string
+    price?: StringFilter<"UserBalanceHistory"> | string
+    assert?: StringFilter<"UserBalanceHistory"> | string
+    token_id?: StringFilter<"UserBalanceHistory"> | string
+    wallet_type?: IntFilter<"UserBalanceHistory"> | number
+    count_date?: StringFilter<"UserBalanceHistory"> | string
+    created_at?: DateTimeNullableFilter<"UserBalanceHistory"> | Date | string | null
+    updated_at?: DateTimeFilter<"UserBalanceHistory"> | Date | string
+  }
+
+  export type TokenCreateWithoutUserBalanceHistoryInput = {
+    id?: string
+    token_symbol?: string
+    token_name?: string
+    token_icon?: string
+    contract_address?: string
+    token_decimals: number
+    is_native?: boolean
+    is_multiple_chain?: boolean
+    coin_market_cap_id: number
+    default_subscribe?: number
+    created_at?: Date | string
+    updated_at?: Date | string
+    chain?: ChainCreateNestedOneWithoutTokensInput
+  }
+
+  export type TokenUncheckedCreateWithoutUserBalanceHistoryInput = {
+    id?: string
+    chain_id?: string
+    token_symbol?: string
+    token_name?: string
+    token_icon?: string
+    contract_address?: string
+    token_decimals: number
+    is_native?: boolean
+    is_multiple_chain?: boolean
+    coin_market_cap_id: number
+    default_subscribe?: number
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type TokenCreateOrConnectWithoutUserBalanceHistoryInput = {
+    where: TokenWhereUniqueInput
+    create: XOR<TokenCreateWithoutUserBalanceHistoryInput, TokenUncheckedCreateWithoutUserBalanceHistoryInput>
+  }
+
+  export type TokenUpsertWithoutUserBalanceHistoryInput = {
+    update: XOR<TokenUpdateWithoutUserBalanceHistoryInput, TokenUncheckedUpdateWithoutUserBalanceHistoryInput>
+    create: XOR<TokenCreateWithoutUserBalanceHistoryInput, TokenUncheckedCreateWithoutUserBalanceHistoryInput>
+    where?: TokenWhereInput
+  }
+
+  export type TokenUpdateToOneWithWhereWithoutUserBalanceHistoryInput = {
+    where?: TokenWhereInput
+    data: XOR<TokenUpdateWithoutUserBalanceHistoryInput, TokenUncheckedUpdateWithoutUserBalanceHistoryInput>
+  }
+
+  export type TokenUpdateWithoutUserBalanceHistoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    token_symbol?: StringFieldUpdateOperationsInput | string
+    token_name?: StringFieldUpdateOperationsInput | string
+    token_icon?: StringFieldUpdateOperationsInput | string
+    contract_address?: StringFieldUpdateOperationsInput | string
+    token_decimals?: IntFieldUpdateOperationsInput | number
+    is_native?: BoolFieldUpdateOperationsInput | boolean
+    is_multiple_chain?: BoolFieldUpdateOperationsInput | boolean
+    coin_market_cap_id?: IntFieldUpdateOperationsInput | number
+    default_subscribe?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    chain?: ChainUpdateOneWithoutTokensNestedInput
+  }
+
+  export type TokenUncheckedUpdateWithoutUserBalanceHistoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    chain_id?: StringFieldUpdateOperationsInput | string
+    token_symbol?: StringFieldUpdateOperationsInput | string
+    token_name?: StringFieldUpdateOperationsInput | string
+    token_icon?: StringFieldUpdateOperationsInput | string
+    contract_address?: StringFieldUpdateOperationsInput | string
+    token_decimals?: IntFieldUpdateOperationsInput | number
+    is_native?: BoolFieldUpdateOperationsInput | boolean
+    is_multiple_chain?: BoolFieldUpdateOperationsInput | boolean
+    coin_market_cap_id?: IntFieldUpdateOperationsInput | number
+    default_subscribe?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type NodeCreateManyChainInput = {
@@ -6828,6 +9666,7 @@ export namespace Prisma {
     default_subscribe?: IntFieldUpdateOperationsInput | number
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    UserBalanceHistory?: UserBalanceHistoryUpdateManyWithoutTokenNestedInput
   }
 
   export type TokenUncheckedUpdateWithoutChainInput = {
@@ -6843,6 +9682,7 @@ export namespace Prisma {
     default_subscribe?: IntFieldUpdateOperationsInput | number
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    UserBalanceHistory?: UserBalanceHistoryUncheckedUpdateManyWithoutTokenNestedInput
   }
 
   export type TokenUncheckedUpdateManyWithoutChainInput = {
@@ -6860,6 +9700,53 @@ export namespace Prisma {
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type UserBalanceHistoryCreateManyTokenInput = {
+    id?: number
+    user_id?: string
+    balance: string
+    price: string
+    assert: string
+    wallet_type: number
+    count_date: string
+    created_at?: Date | string | null
+    updated_at?: Date | string
+  }
+
+  export type UserBalanceHistoryUpdateWithoutTokenInput = {
+    user_id?: StringFieldUpdateOperationsInput | string
+    balance?: StringFieldUpdateOperationsInput | string
+    price?: StringFieldUpdateOperationsInput | string
+    assert?: StringFieldUpdateOperationsInput | string
+    wallet_type?: IntFieldUpdateOperationsInput | number
+    count_date?: StringFieldUpdateOperationsInput | string
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserBalanceHistoryUncheckedUpdateWithoutTokenInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
+    balance?: StringFieldUpdateOperationsInput | string
+    price?: StringFieldUpdateOperationsInput | string
+    assert?: StringFieldUpdateOperationsInput | string
+    wallet_type?: IntFieldUpdateOperationsInput | number
+    count_date?: StringFieldUpdateOperationsInput | string
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserBalanceHistoryUncheckedUpdateManyWithoutTokenInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
+    balance?: StringFieldUpdateOperationsInput | string
+    price?: StringFieldUpdateOperationsInput | string
+    assert?: StringFieldUpdateOperationsInput | string
+    wallet_type?: IntFieldUpdateOperationsInput | number
+    count_date?: StringFieldUpdateOperationsInput | string
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
 
 
   /**
@@ -6869,6 +9756,10 @@ export namespace Prisma {
      * @deprecated Use ChainCountOutputTypeDefaultArgs instead
      */
     export type ChainCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ChainCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use TokenCountOutputTypeDefaultArgs instead
+     */
+    export type TokenCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TokenCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use ChainDefaultArgs instead
      */
@@ -6885,6 +9776,14 @@ export namespace Prisma {
      * @deprecated Use TokenSubscribeDefaultArgs instead
      */
     export type TokenSubscribeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TokenSubscribeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use UserWalletDefaultArgs instead
+     */
+    export type UserWalletArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserWalletDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use UserBalanceHistoryDefaultArgs instead
+     */
+    export type UserBalanceHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserBalanceHistoryDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

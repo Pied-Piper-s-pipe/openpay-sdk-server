@@ -205,7 +205,7 @@ async function addDefaultNode() {
     },
     {
       chain_id: '43114',
-      node_url: 'https://rpc.ankr.com/avalanche',
+      node_url: 'https://api.avax.network/ext/bc/C/rpc',
     },
     {
       chain_id: '5426',

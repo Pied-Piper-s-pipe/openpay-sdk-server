@@ -9,6 +9,7 @@ import { COIN_PRICE_PUSH_QUEUE } from '@app/shared/define/const';
 import { WinstonModule } from 'nest-winston';
 import { instance } from '@app/shared/logs/log-configuration';
 import { initializeClients } from './third-party/client';
+import { CacheControlMiddleware } from '@app/shared/middleware/cache-control-middleware';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
@@ -18,6 +19,7 @@ async function bootstrap() {
   });
   app.setGlobalPrefix('api/v1');
   app.useGlobalPipes(new ValidationPipe({ transform: true })); // 启用 transform 以应用默认值
+  app.use(new CacheControlMiddleware().use); // 注册全局中间件
   const logger = new Logger('bootstrap');
 
   const configService = app.get<ConfigService>(ConfigService);

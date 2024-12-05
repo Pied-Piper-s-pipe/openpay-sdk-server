@@ -40,20 +40,21 @@ model Node {
 }
 
 model Token {
-  id                 String   @id @default(uuid())
-  chain_id           String   @default("")
-  token_symbol       String   @default("")
-  token_name         String   @default("")
-  token_icon         String   @default("")
-  contract_address   String   @default("")
+  id                 String               @id @default(uuid())
+  chain_id           String               @default("")
+  token_symbol       String               @default("")
+  token_name         String               @default("")
+  token_icon         String               @default("")
+  contract_address   String               @default("")
   token_decimals     Int
-  is_native          Boolean  @default(false)
-  is_multiple_chain  Boolean  @default(false)
+  is_native          Boolean              @default(false)
+  is_multiple_chain  Boolean              @default(false)
   coin_market_cap_id Int
-  default_subscribe  Int      @default(0) //是否默认订阅价格， 0-否 1-是
-  chain              Chain?   @relation(fields: [chain_id], references: [chain_id])
-  created_at         DateTime @default(now())
-  updated_at         DateTime @updatedAt
+  default_subscribe  Int                  @default(0) //是否默认订阅价格， 0-否 1-是
+  chain              Chain?               @relation(fields: [chain_id], references: [chain_id])
+  created_at         DateTime             @default(now())
+  updated_at         DateTime             @updatedAt
+  UserBalanceHistory UserBalanceHistory[]
 
   @@map("tokens")
 }
@@ -66,4 +67,32 @@ model TokenSubscribe {
   updated_at DateTime  @updatedAt
 
   @@map("token_subscribes")
+}
+
+model UserWallet {
+  id          Int       @id @default(autoincrement())
+  user_id     String    @default("")
+  address     String
+  wallet_type Int
+  created_at  DateTime? @default(now())
+  updated_at  DateTime  @updatedAt
+
+  @@unique([address, wallet_type])
+  @@map("user_wallets")
+}
+
+model UserBalanceHistory {
+  id          Int       @id @default(autoincrement())
+  user_id     String    @default("")
+  balance     String
+  price       String
+  assert      String
+  token_id    String
+  token       Token?    @relation(fields: [token_id], references: [id])
+  wallet_type Int
+  count_date  String
+  created_at  DateTime? @default(now())
+  updated_at  DateTime  @updatedAt
+
+  @@map("user_balance_histories")
 }

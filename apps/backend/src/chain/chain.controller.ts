@@ -8,6 +8,9 @@ import {
   Delete,
   Inject,
   Query,
+  Res,
+  HttpCode,
+  HttpStatus,
 } from '@nestjs/common';
 import { ChainService } from './chain.service';
 import { CreateChainDto } from './dto/create-chain.dto';
@@ -32,6 +35,7 @@ export class ChainController {
   }
 
   @Get()
+  @HttpCode(HttpStatus.OK)
   findAll() {
     return this.chainService.findAll();
   }
