@@ -90,7 +90,7 @@ export class TokenService {
     this.logger.log(`subscribe token request: ${JSON.stringify(body)}`);
     const subscribed = await this.prismaService.tokenSubscribe.findUnique({
       where: {
-        address: body.address,
+        user_id: body.user_id,
       },
     });
     let created;
@@ -100,7 +100,7 @@ export class TokenService {
     if (!subscribed) {
       created = await this.prismaService.tokenSubscribe.create({
         data: {
-          address: body.address,
+          user_id: body.user_id,
           token_ids: JSON.stringify(body.token_ids),
         },
       });
@@ -116,7 +116,7 @@ export class TokenService {
 
       created = await this.prismaService.tokenSubscribe.update({
         where: {
-          address: body.address,
+          user_id: body.user_id,
         },
         data: {
           token_ids: JSON.stringify(mergedTokenIds),
@@ -127,7 +127,7 @@ export class TokenService {
     //add redis
     for (const tokenID of newSubscribeTokenList) {
       const subscribeKey = TOKEN_SUBSCRIBE_SUFFIX.concat(tokenID);
-      this.redis.sadd(subscribeKey, body.address);
+      this.redis.sadd(subscribeKey, body.user_id);
 
       const coinMarketKey = COIN_MARKET_SUBSCRIBE;
       this.redis.sadd(coinMarketKey, tokenID);
@@ -143,7 +143,7 @@ export class TokenService {
 
     const subscribed = await this.prismaService.tokenSubscribe.findUnique({
       where: {
-        address: body.address,
+        user_id: body.user_id,
       },
     });
     if (!subscribed) {
@@ -157,7 +157,7 @@ export class TokenService {
 
     const updated = await this.prismaService.tokenSubscribe.update({
       where: {
-        address: body.address,
+        user_id: body.user_id,
       },
       data: {
         token_ids: JSON.stringify(mergedTokenIds),
@@ -167,7 +167,7 @@ export class TokenService {
     //update redis
     for (const tokenID of body.token_ids) {
       const subscribeKey = TOKEN_SUBSCRIBE_SUFFIX.concat(tokenID);
-      this.redis.srem(subscribeKey, body.address);
+      this.redis.srem(subscribeKey, body.user_id);
     }
 
     return { ...body };
@@ -179,7 +179,7 @@ export class TokenService {
     //地址自定义关注tokens
     const subscribed = await this.prismaService.tokenSubscribe.findUnique({
       where: {
-        address: from,
+        user_id: from,
       },
     });
     let subscribedTokenIDs: string[];
@@ -195,7 +195,7 @@ export class TokenService {
         return token.id;
       });
       await this.subscribeToken({
-        address: from,
+        user_id: from,
         token_ids: subscribedTokenIDs,
       });
     }

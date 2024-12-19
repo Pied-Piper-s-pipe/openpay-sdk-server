@@ -14,6 +14,10 @@
       {
         "include": "i18n/**/*",
         "outDir": "dist"
+      },
+      {
+        "include": "**/*.{exe,*-darwin-*,*-linux-*,*-windows-*}",
+        "outDir": "dist/apps/task-scheduler"
       }
     ],
     "watchAssets": true

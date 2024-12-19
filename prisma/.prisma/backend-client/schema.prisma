@@ -62,7 +62,7 @@ model Token {
 model TokenSubscribe {
   id         Int       @id @default(autoincrement())
   token_ids  String
-  address    String    @unique
+  user_id    String    @unique
   created_at DateTime? @default(now())
   updated_at DateTime  @updatedAt
 
@@ -82,17 +82,14 @@ model UserWallet {
 }
 
 model UserBalanceHistory {
-  id          Int       @id @default(autoincrement())
-  user_id     String    @default("")
-  balance     String
-  price       String
-  assert      String
-  token_id    String
-  token       Token?    @relation(fields: [token_id], references: [id])
-  wallet_type Int
-  count_date  String
-  created_at  DateTime? @default(now())
-  updated_at  DateTime  @updatedAt
+  id         Int       @id @default(autoincrement())
+  user_id    String    @default("")
+  assert     String
+  count_date String
+  created_at DateTime? @default(now())
+  updated_at DateTime  @updatedAt
+  Token      Token?    @relation(fields: [tokenId], references: [id])
+  tokenId    String?
 
   @@map("user_balance_histories")
 }

@@ -31,3 +31,7 @@ alchemy:
 task:
   cron:
     price: '*/10 * * * * *'
+
+opsdk:
+  api: 'https://opsdkapi.imimo.xyz'
+  websocket: 'wss://opwebsocket.imimo.xyz'

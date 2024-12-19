@@ -24,8 +24,8 @@ export class TokenController {
   constructor(private readonly tokenService: TokenService) {}
 
   @Get('subscribeds')
-  async subscribeds(@Query('address') address: string) {
-    return this.tokenService.subscribeds(address);
+  async subscribeds(@Query('user_id') userID: string) {
+    return this.tokenService.subscribeds(userID);
   }
 
   @Post()

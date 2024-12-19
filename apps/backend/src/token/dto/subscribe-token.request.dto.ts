@@ -6,7 +6,7 @@ export class SubscribeTokenReqeustDto {
 
   @IsString()
   @IsNotEmpty()
-  address: string;
+  user_id: string;
 }
 
 export class UnsubscribeTokenReqeustDto {
@@ -15,5 +15,5 @@ export class UnsubscribeTokenReqeustDto {
 
   @IsString()
   @IsNotEmpty()
-  address: string;
+  user_id: string;
 }

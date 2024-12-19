@@ -19,8 +19,6 @@ export class TaskService {
   logger = new Logger(TaskService.name);
   priceRmqClientProxy: ClientProxy;
 
-  private readonly priceCron: string;
-
   constructor(
     @InjectRedis() private readonly redis: Redis,
     @Inject(SharedService) private readonly sharedService: SharedService,
@@ -30,7 +28,6 @@ export class TaskService {
     this.priceRmqClientProxy = ClientProxyFactory.create(
       sharedService.getRmqOptions('COIN_PRICE_PUSH_QUEUE', '', 10),
     );
-    this.priceCron = this.configService.get<string>(TASK_PRICE_CRON);
   }
 
   @Cron(CronExpression.EVERY_MINUTE)

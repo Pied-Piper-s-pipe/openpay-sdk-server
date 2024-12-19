@@ -161,7 +161,7 @@ exports.Prisma.TokenScalarFieldEnum = {
 exports.Prisma.TokenSubscribeScalarFieldEnum = {
   id: 'id',
   token_ids: 'token_ids',
-  address: 'address',
+  user_id: 'user_id',
   created_at: 'created_at',
   updated_at: 'updated_at'
 };
@@ -178,14 +178,11 @@ exports.Prisma.UserWalletScalarFieldEnum = {
 exports.Prisma.UserBalanceHistoryScalarFieldEnum = {
   id: 'id',
   user_id: 'user_id',
-  balance: 'balance',
-  price: 'price',
   assert: 'assert',
-  token_id: 'token_id',
-  wallet_type: 'wallet_type',
   count_date: 'count_date',
   created_at: 'created_at',
-  updated_at: 'updated_at'
+  updated_at: 'updated_at',
+  tokenId: 'tokenId'
 };
 
 exports.Prisma.SortOrder = {

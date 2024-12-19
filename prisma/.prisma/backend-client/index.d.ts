@@ -4488,7 +4488,7 @@ export namespace Prisma {
   export type TokenSubscribeMinAggregateOutputType = {
     id: number | null
     token_ids: string | null
-    address: string | null
+    user_id: string | null
     created_at: Date | null
     updated_at: Date | null
   }
@@ -4496,7 +4496,7 @@ export namespace Prisma {
   export type TokenSubscribeMaxAggregateOutputType = {
     id: number | null
     token_ids: string | null
-    address: string | null
+    user_id: string | null
     created_at: Date | null
     updated_at: Date | null
   }
@@ -4504,7 +4504,7 @@ export namespace Prisma {
   export type TokenSubscribeCountAggregateOutputType = {
     id: number
     token_ids: number
-    address: number
+    user_id: number
     created_at: number
     updated_at: number
     _all: number
@@ -4522,7 +4522,7 @@ export namespace Prisma {
   export type TokenSubscribeMinAggregateInputType = {
     id?: true
     token_ids?: true
-    address?: true
+    user_id?: true
     created_at?: true
     updated_at?: true
   }
@@ -4530,7 +4530,7 @@ export namespace Prisma {
   export type TokenSubscribeMaxAggregateInputType = {
     id?: true
     token_ids?: true
-    address?: true
+    user_id?: true
     created_at?: true
     updated_at?: true
   }
@@ -4538,7 +4538,7 @@ export namespace Prisma {
   export type TokenSubscribeCountAggregateInputType = {
     id?: true
     token_ids?: true
-    address?: true
+    user_id?: true
     created_at?: true
     updated_at?: true
     _all?: true
@@ -4633,7 +4633,7 @@ export namespace Prisma {
   export type TokenSubscribeGroupByOutputType = {
     id: number
     token_ids: string
-    address: string
+    user_id: string
     created_at: Date | null
     updated_at: Date
     _count: TokenSubscribeCountAggregateOutputType | null
@@ -4660,7 +4660,7 @@ export namespace Prisma {
   export type TokenSubscribeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     token_ids?: boolean
-    address?: boolean
+    user_id?: boolean
     created_at?: boolean
     updated_at?: boolean
   }, ExtArgs["result"]["tokenSubscribe"]>
@@ -4668,7 +4668,7 @@ export namespace Prisma {
   export type TokenSubscribeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     token_ids?: boolean
-    address?: boolean
+    user_id?: boolean
     created_at?: boolean
     updated_at?: boolean
   }, ExtArgs["result"]["tokenSubscribe"]>
@@ -4676,7 +4676,7 @@ export namespace Prisma {
   export type TokenSubscribeSelectScalar = {
     id?: boolean
     token_ids?: boolean
-    address?: boolean
+    user_id?: boolean
     created_at?: boolean
     updated_at?: boolean
   }
@@ -4688,7 +4688,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       token_ids: string
-      address: string
+      user_id: string
       created_at: Date | null
       updated_at: Date
     }, ExtArgs["result"]["tokenSubscribe"]>
@@ -5086,7 +5086,7 @@ export namespace Prisma {
   interface TokenSubscribeFieldRefs {
     readonly id: FieldRef<"TokenSubscribe", 'Int'>
     readonly token_ids: FieldRef<"TokenSubscribe", 'String'>
-    readonly address: FieldRef<"TokenSubscribe", 'String'>
+    readonly user_id: FieldRef<"TokenSubscribe", 'String'>
     readonly created_at: FieldRef<"TokenSubscribe", 'DateTime'>
     readonly updated_at: FieldRef<"TokenSubscribe", 'DateTime'>
   }
@@ -6319,102 +6319,80 @@ export namespace Prisma {
 
   export type UserBalanceHistoryAvgAggregateOutputType = {
     id: number | null
-    wallet_type: number | null
   }
 
   export type UserBalanceHistorySumAggregateOutputType = {
     id: number | null
-    wallet_type: number | null
   }
 
   export type UserBalanceHistoryMinAggregateOutputType = {
     id: number | null
     user_id: string | null
-    balance: string | null
-    price: string | null
     assert: string | null
-    token_id: string | null
-    wallet_type: number | null
     count_date: string | null
     created_at: Date | null
     updated_at: Date | null
+    tokenId: string | null
   }
 
   export type UserBalanceHistoryMaxAggregateOutputType = {
     id: number | null
     user_id: string | null
-    balance: string | null
-    price: string | null
     assert: string | null
-    token_id: string | null
-    wallet_type: number | null
     count_date: string | null
     created_at: Date | null
     updated_at: Date | null
+    tokenId: string | null
   }
 
   export type UserBalanceHistoryCountAggregateOutputType = {
     id: number
     user_id: number
-    balance: number
-    price: number
     assert: number
-    token_id: number
-    wallet_type: number
     count_date: number
     created_at: number
     updated_at: number
+    tokenId: number
     _all: number
   }
 
 
   export type UserBalanceHistoryAvgAggregateInputType = {
     id?: true
-    wallet_type?: true
   }
 
   export type UserBalanceHistorySumAggregateInputType = {
     id?: true
-    wallet_type?: true
   }
 
   export type UserBalanceHistoryMinAggregateInputType = {
     id?: true
     user_id?: true
-    balance?: true
-    price?: true
     assert?: true
-    token_id?: true
-    wallet_type?: true
     count_date?: true
     created_at?: true
     updated_at?: true
+    tokenId?: true
   }
 
   export type UserBalanceHistoryMaxAggregateInputType = {
     id?: true
     user_id?: true
-    balance?: true
-    price?: true
     assert?: true
-    token_id?: true
-    wallet_type?: true
     count_date?: true
     created_at?: true
     updated_at?: true
+    tokenId?: true
   }
 
   export type UserBalanceHistoryCountAggregateInputType = {
     id?: true
     user_id?: true
-    balance?: true
-    price?: true
     assert?: true
-    token_id?: true
-    wallet_type?: true
     count_date?: true
     created_at?: true
     updated_at?: true
+    tokenId?: true
     _all?: true
   }
 
@@ -6507,14 +6485,11 @@ export namespace Prisma {
   export type UserBalanceHistoryGroupByOutputType = {
     id: number
     user_id: string
-    balance: string
-    price: string
     assert: string
-    token_id: string
-    wallet_type: number
     count_date: string
     created_at: Date | null
     updated_at: Date
+    tokenId: string | null
     _count: UserBalanceHistoryCountAggregateOutputType | null
     _avg: UserBalanceHistoryAvgAggregateOutputType | null
     _sum: UserBalanceHistorySumAggregateOutputType | null
@@ -6539,67 +6514,55 @@ export namespace Prisma {
   export type UserBalanceHistorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     user_id?: boolean
-    balance?: boolean
-    price?: boolean
     assert?: boolean
-    token_id?: boolean
-    wallet_type?: boolean
     count_date?: boolean
     created_at?: boolean
     updated_at?: boolean
-    token?: boolean | UserBalanceHistory$tokenArgs<ExtArgs>
+    tokenId?: boolean
+    Token?: boolean | UserBalanceHistory$TokenArgs<ExtArgs>
   }, ExtArgs["result"]["userBalanceHistory"]>
 
   export type UserBalanceHistorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     user_id?: boolean
-    balance?: boolean
-    price?: boolean
     assert?: boolean
-    token_id?: boolean
-    wallet_type?: boolean
     count_date?: boolean
     created_at?: boolean
     updated_at?: boolean
-    token?: boolean | UserBalanceHistory$tokenArgs<ExtArgs>
+    tokenId?: boolean
+    Token?: boolean | UserBalanceHistory$TokenArgs<ExtArgs>
   }, ExtArgs["result"]["userBalanceHistory"]>
 
   export type UserBalanceHistorySelectScalar = {
     id?: boolean
     user_id?: boolean
-    balance?: boolean
-    price?: boolean
     assert?: boolean
-    token_id?: boolean
-    wallet_type?: boolean
     count_date?: boolean
     created_at?: boolean
     updated_at?: boolean
+    tokenId?: boolean
   }
 
   export type UserBalanceHistoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    token?: boolean | UserBalanceHistory$tokenArgs<ExtArgs>
+    Token?: boolean | UserBalanceHistory$TokenArgs<ExtArgs>
   }
   export type UserBalanceHistoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    token?: boolean | UserBalanceHistory$tokenArgs<ExtArgs>
+    Token?: boolean | UserBalanceHistory$TokenArgs<ExtArgs>
   }
 
   export type $UserBalanceHistoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "UserBalanceHistory"
     objects: {
-      token: Prisma.$TokenPayload<ExtArgs> | null
+      Token: Prisma.$TokenPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       user_id: string
-      balance: string
-      price: string
       assert: string
-      token_id: string
-      wallet_type: number
       count_date: string
       created_at: Date | null
       updated_at: Date
+      tokenId: string | null
     }, ExtArgs["result"]["userBalanceHistory"]>
     composites: {}
   }
@@ -6964,7 +6927,7 @@ export namespace Prisma {
    */
   export interface Prisma__UserBalanceHistoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    token<T extends UserBalanceHistory$tokenArgs<ExtArgs> = {}>(args?: Subset<T, UserBalanceHistory$tokenArgs<ExtArgs>>): Prisma__TokenClient<$Result.GetResult<Prisma.$TokenPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    Token<T extends UserBalanceHistory$TokenArgs<ExtArgs> = {}>(args?: Subset<T, UserBalanceHistory$TokenArgs<ExtArgs>>): Prisma__TokenClient<$Result.GetResult<Prisma.$TokenPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6996,14 +6959,11 @@ export namespace Prisma {
   interface UserBalanceHistoryFieldRefs {
     readonly id: FieldRef<"UserBalanceHistory", 'Int'>
     readonly user_id: FieldRef<"UserBalanceHistory", 'String'>
-    readonly balance: FieldRef<"UserBalanceHistory", 'String'>
-    readonly price: FieldRef<"UserBalanceHistory", 'String'>
     readonly assert: FieldRef<"UserBalanceHistory", 'String'>
-    readonly token_id: FieldRef<"UserBalanceHistory", 'String'>
-    readonly wallet_type: FieldRef<"UserBalanceHistory", 'Int'>
     readonly count_date: FieldRef<"UserBalanceHistory", 'String'>
     readonly created_at: FieldRef<"UserBalanceHistory", 'DateTime'>
     readonly updated_at: FieldRef<"UserBalanceHistory", 'DateTime'>
+    readonly tokenId: FieldRef<"UserBalanceHistory", 'String'>
   }
     
 
@@ -7322,9 +7282,9 @@ export namespace Prisma {
   }
 
   /**
-   * UserBalanceHistory.token
+   * UserBalanceHistory.Token
    */
-  export type UserBalanceHistory$tokenArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserBalanceHistory$TokenArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Token
      */
@@ -7413,7 +7373,7 @@ export namespace Prisma {
   export const TokenSubscribeScalarFieldEnum: {
     id: 'id',
     token_ids: 'token_ids',
-    address: 'address',
+    user_id: 'user_id',
     created_at: 'created_at',
     updated_at: 'updated_at'
   };
@@ -7436,14 +7396,11 @@ export namespace Prisma {
   export const UserBalanceHistoryScalarFieldEnum: {
     id: 'id',
     user_id: 'user_id',
-    balance: 'balance',
-    price: 'price',
     assert: 'assert',
-    token_id: 'token_id',
-    wallet_type: 'wallet_type',
     count_date: 'count_date',
     created_at: 'created_at',
-    updated_at: 'updated_at'
+    updated_at: 'updated_at',
+    tokenId: 'tokenId'
   };
 
   export type UserBalanceHistoryScalarFieldEnum = (typeof UserBalanceHistoryScalarFieldEnum)[keyof typeof UserBalanceHistoryScalarFieldEnum]
@@ -7785,7 +7742,7 @@ export namespace Prisma {
     NOT?: TokenSubscribeWhereInput | TokenSubscribeWhereInput[]
     id?: IntFilter<"TokenSubscribe"> | number
     token_ids?: StringFilter<"TokenSubscribe"> | string
-    address?: StringFilter<"TokenSubscribe"> | string
+    user_id?: StringFilter<"TokenSubscribe"> | string
     created_at?: DateTimeNullableFilter<"TokenSubscribe"> | Date | string | null
     updated_at?: DateTimeFilter<"TokenSubscribe"> | Date | string
   }
@@ -7793,26 +7750,26 @@ export namespace Prisma {
   export type TokenSubscribeOrderByWithRelationInput = {
     id?: SortOrder
     token_ids?: SortOrder
-    address?: SortOrder
+    user_id?: SortOrder
     created_at?: SortOrderInput | SortOrder
     updated_at?: SortOrder
   }
 
   export type TokenSubscribeWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    address?: string
+    user_id?: string
     AND?: TokenSubscribeWhereInput | TokenSubscribeWhereInput[]
     OR?: TokenSubscribeWhereInput[]
     NOT?: TokenSubscribeWhereInput | TokenSubscribeWhereInput[]
     token_ids?: StringFilter<"TokenSubscribe"> | string
     created_at?: DateTimeNullableFilter<"TokenSubscribe"> | Date | string | null
     updated_at?: DateTimeFilter<"TokenSubscribe"> | Date | string
-  }, "id" | "address">
+  }, "id" | "user_id">
 
   export type TokenSubscribeOrderByWithAggregationInput = {
     id?: SortOrder
     token_ids?: SortOrder
-    address?: SortOrder
+    user_id?: SortOrder
     created_at?: SortOrderInput | SortOrder
     updated_at?: SortOrder
     _count?: TokenSubscribeCountOrderByAggregateInput
@@ -7828,7 +7785,7 @@ export namespace Prisma {
     NOT?: TokenSubscribeScalarWhereWithAggregatesInput | TokenSubscribeScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"TokenSubscribe"> | number
     token_ids?: StringWithAggregatesFilter<"TokenSubscribe"> | string
-    address?: StringWithAggregatesFilter<"TokenSubscribe"> | string
+    user_id?: StringWithAggregatesFilter<"TokenSubscribe"> | string
     created_at?: DateTimeNullableWithAggregatesFilter<"TokenSubscribe"> | Date | string | null
     updated_at?: DateTimeWithAggregatesFilter<"TokenSubscribe"> | Date | string
   }
@@ -7899,29 +7856,23 @@ export namespace Prisma {
     NOT?: UserBalanceHistoryWhereInput | UserBalanceHistoryWhereInput[]
     id?: IntFilter<"UserBalanceHistory"> | number
     user_id?: StringFilter<"UserBalanceHistory"> | string
-    balance?: StringFilter<"UserBalanceHistory"> | string
-    price?: StringFilter<"UserBalanceHistory"> | string
     assert?: StringFilter<"UserBalanceHistory"> | string
-    token_id?: StringFilter<"UserBalanceHistory"> | string
-    wallet_type?: IntFilter<"UserBalanceHistory"> | number
     count_date?: StringFilter<"UserBalanceHistory"> | string
     created_at?: DateTimeNullableFilter<"UserBalanceHistory"> | Date | string | null
     updated_at?: DateTimeFilter<"UserBalanceHistory"> | Date | string
-    token?: XOR<TokenNullableRelationFilter, TokenWhereInput> | null
+    tokenId?: StringNullableFilter<"UserBalanceHistory"> | string | null
+    Token?: XOR<TokenNullableRelationFilter, TokenWhereInput> | null
   }
 
   export type UserBalanceHistoryOrderByWithRelationInput = {
     id?: SortOrder
     user_id?: SortOrder
-    balance?: SortOrder
-    price?: SortOrder
     assert?: SortOrder
-    token_id?: SortOrder
-    wallet_type?: SortOrder
     count_date?: SortOrder
     created_at?: SortOrderInput | SortOrder
     updated_at?: SortOrder
-    token?: TokenOrderByWithRelationInput
+    tokenId?: SortOrderInput | SortOrder
+    Token?: TokenOrderByWithRelationInput
   }
 
   export type UserBalanceHistoryWhereUniqueInput = Prisma.AtLeast<{
@@ -7930,28 +7881,22 @@ export namespace Prisma {
     OR?: UserBalanceHistoryWhereInput[]
     NOT?: UserBalanceHistoryWhereInput | UserBalanceHistoryWhereInput[]
     user_id?: StringFilter<"UserBalanceHistory"> | string
-    balance?: StringFilter<"UserBalanceHistory"> | string
-    price?: StringFilter<"UserBalanceHistory"> | string
     assert?: StringFilter<"UserBalanceHistory"> | string
-    token_id?: StringFilter<"UserBalanceHistory"> | string
-    wallet_type?: IntFilter<"UserBalanceHistory"> | number
     count_date?: StringFilter<"UserBalanceHistory"> | string
     created_at?: DateTimeNullableFilter<"UserBalanceHistory"> | Date | string | null
     updated_at?: DateTimeFilter<"UserBalanceHistory"> | Date | string
-    token?: XOR<TokenNullableRelationFilter, TokenWhereInput> | null
+    tokenId?: StringNullableFilter<"UserBalanceHistory"> | string | null
+    Token?: XOR<TokenNullableRelationFilter, TokenWhereInput> | null
   }, "id">
 
   export type UserBalanceHistoryOrderByWithAggregationInput = {
     id?: SortOrder
     user_id?: SortOrder
-    balance?: SortOrder
-    price?: SortOrder
     assert?: SortOrder
-    token_id?: SortOrder
-    wallet_type?: SortOrder
     count_date?: SortOrder
     created_at?: SortOrderInput | SortOrder
     updated_at?: SortOrder
+    tokenId?: SortOrderInput | SortOrder
     _count?: UserBalanceHistoryCountOrderByAggregateInput
     _avg?: UserBalanceHistoryAvgOrderByAggregateInput
     _max?: UserBalanceHistoryMaxOrderByAggregateInput
@@ -7965,14 +7910,11 @@ export namespace Prisma {
     NOT?: UserBalanceHistoryScalarWhereWithAggregatesInput | UserBalanceHistoryScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"UserBalanceHistory"> | number
     user_id?: StringWithAggregatesFilter<"UserBalanceHistory"> | string
-    balance?: StringWithAggregatesFilter<"UserBalanceHistory"> | string
-    price?: StringWithAggregatesFilter<"UserBalanceHistory"> | string
     assert?: StringWithAggregatesFilter<"UserBalanceHistory"> | string
-    token_id?: StringWithAggregatesFilter<"UserBalanceHistory"> | string
-    wallet_type?: IntWithAggregatesFilter<"UserBalanceHistory"> | number
     count_date?: StringWithAggregatesFilter<"UserBalanceHistory"> | string
     created_at?: DateTimeNullableWithAggregatesFilter<"UserBalanceHistory"> | Date | string | null
     updated_at?: DateTimeWithAggregatesFilter<"UserBalanceHistory"> | Date | string
+    tokenId?: StringNullableWithAggregatesFilter<"UserBalanceHistory"> | string | null
   }
 
   export type ChainCreateInput = {
@@ -8239,7 +8181,7 @@ export namespace Prisma {
 
   export type TokenSubscribeCreateInput = {
     token_ids: string
-    address: string
+    user_id: string
     created_at?: Date | string | null
     updated_at?: Date | string
   }
@@ -8247,14 +8189,14 @@ export namespace Prisma {
   export type TokenSubscribeUncheckedCreateInput = {
     id?: number
     token_ids: string
-    address: string
+    user_id: string
     created_at?: Date | string | null
     updated_at?: Date | string
   }
 
   export type TokenSubscribeUpdateInput = {
     token_ids?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -8262,7 +8204,7 @@ export namespace Prisma {
   export type TokenSubscribeUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     token_ids?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -8270,14 +8212,14 @@ export namespace Prisma {
   export type TokenSubscribeCreateManyInput = {
     id?: number
     token_ids: string
-    address: string
+    user_id: string
     created_at?: Date | string | null
     updated_at?: Date | string
   }
 
   export type TokenSubscribeUpdateManyMutationInput = {
     token_ids?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -8285,7 +8227,7 @@ export namespace Prisma {
   export type TokenSubscribeUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     token_ids?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -8352,73 +8294,55 @@ export namespace Prisma {
 
   export type UserBalanceHistoryCreateInput = {
     user_id?: string
-    balance: string
-    price: string
     assert: string
-    wallet_type: number
     count_date: string
     created_at?: Date | string | null
     updated_at?: Date | string
-    token?: TokenCreateNestedOneWithoutUserBalanceHistoryInput
+    Token?: TokenCreateNestedOneWithoutUserBalanceHistoryInput
   }
 
   export type UserBalanceHistoryUncheckedCreateInput = {
     id?: number
     user_id?: string
-    balance: string
-    price: string
     assert: string
-    token_id: string
-    wallet_type: number
     count_date: string
     created_at?: Date | string | null
     updated_at?: Date | string
+    tokenId?: string | null
   }
 
   export type UserBalanceHistoryUpdateInput = {
     user_id?: StringFieldUpdateOperationsInput | string
-    balance?: StringFieldUpdateOperationsInput | string
-    price?: StringFieldUpdateOperationsInput | string
     assert?: StringFieldUpdateOperationsInput | string
-    wallet_type?: IntFieldUpdateOperationsInput | number
     count_date?: StringFieldUpdateOperationsInput | string
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    token?: TokenUpdateOneWithoutUserBalanceHistoryNestedInput
+    Token?: TokenUpdateOneWithoutUserBalanceHistoryNestedInput
   }
 
   export type UserBalanceHistoryUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     user_id?: StringFieldUpdateOperationsInput | string
-    balance?: StringFieldUpdateOperationsInput | string
-    price?: StringFieldUpdateOperationsInput | string
     assert?: StringFieldUpdateOperationsInput | string
-    token_id?: StringFieldUpdateOperationsInput | string
-    wallet_type?: IntFieldUpdateOperationsInput | number
     count_date?: StringFieldUpdateOperationsInput | string
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    tokenId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserBalanceHistoryCreateManyInput = {
     id?: number
     user_id?: string
-    balance: string
-    price: string
     assert: string
-    token_id: string
-    wallet_type: number
     count_date: string
     created_at?: Date | string | null
     updated_at?: Date | string
+    tokenId?: string | null
   }
 
   export type UserBalanceHistoryUpdateManyMutationInput = {
     user_id?: StringFieldUpdateOperationsInput | string
-    balance?: StringFieldUpdateOperationsInput | string
-    price?: StringFieldUpdateOperationsInput | string
     assert?: StringFieldUpdateOperationsInput | string
-    wallet_type?: IntFieldUpdateOperationsInput | number
     count_date?: StringFieldUpdateOperationsInput | string
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8427,14 +8351,11 @@ export namespace Prisma {
   export type UserBalanceHistoryUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     user_id?: StringFieldUpdateOperationsInput | string
-    balance?: StringFieldUpdateOperationsInput | string
-    price?: StringFieldUpdateOperationsInput | string
     assert?: StringFieldUpdateOperationsInput | string
-    token_id?: StringFieldUpdateOperationsInput | string
-    wallet_type?: IntFieldUpdateOperationsInput | number
     count_date?: StringFieldUpdateOperationsInput | string
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    tokenId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -8721,7 +8642,7 @@ export namespace Prisma {
   export type TokenSubscribeCountOrderByAggregateInput = {
     id?: SortOrder
     token_ids?: SortOrder
-    address?: SortOrder
+    user_id?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
   }
@@ -8733,7 +8654,7 @@ export namespace Prisma {
   export type TokenSubscribeMaxOrderByAggregateInput = {
     id?: SortOrder
     token_ids?: SortOrder
-    address?: SortOrder
+    user_id?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
   }
@@ -8741,7 +8662,7 @@ export namespace Prisma {
   export type TokenSubscribeMinOrderByAggregateInput = {
     id?: SortOrder
     token_ids?: SortOrder
-    address?: SortOrder
+    user_id?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
   }
@@ -8806,6 +8727,21 @@ export namespace Prisma {
     wallet_type?: SortOrder
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type TokenNullableRelationFilter = {
     is?: TokenWhereInput | null
     isNot?: TokenWhereInput | null
@@ -8814,50 +8750,57 @@ export namespace Prisma {
   export type UserBalanceHistoryCountOrderByAggregateInput = {
     id?: SortOrder
     user_id?: SortOrder
-    balance?: SortOrder
-    price?: SortOrder
     assert?: SortOrder
-    token_id?: SortOrder
-    wallet_type?: SortOrder
     count_date?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    tokenId?: SortOrder
   }
 
   export type UserBalanceHistoryAvgOrderByAggregateInput = {
     id?: SortOrder
-    wallet_type?: SortOrder
   }
 
   export type UserBalanceHistoryMaxOrderByAggregateInput = {
     id?: SortOrder
     user_id?: SortOrder
-    balance?: SortOrder
-    price?: SortOrder
     assert?: SortOrder
-    token_id?: SortOrder
-    wallet_type?: SortOrder
     count_date?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    tokenId?: SortOrder
   }
 
   export type UserBalanceHistoryMinOrderByAggregateInput = {
     id?: SortOrder
     user_id?: SortOrder
-    balance?: SortOrder
-    price?: SortOrder
     assert?: SortOrder
-    token_id?: SortOrder
-    wallet_type?: SortOrder
     count_date?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    tokenId?: SortOrder
   }
 
   export type UserBalanceHistorySumOrderByAggregateInput = {
     id?: SortOrder
-    wallet_type?: SortOrder
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type NodeCreateNestedManyWithoutChainInput = {
@@ -9058,6 +9001,10 @@ export namespace Prisma {
     update?: XOR<XOR<TokenUpdateToOneWithWhereWithoutUserBalanceHistoryInput, TokenUpdateWithoutUserBalanceHistoryInput>, TokenUncheckedUpdateWithoutUserBalanceHistoryInput>
   }
 
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -9199,6 +9146,37 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type NodeCreateWithoutChainInput = {
@@ -9430,10 +9408,7 @@ export namespace Prisma {
 
   export type UserBalanceHistoryCreateWithoutTokenInput = {
     user_id?: string
-    balance: string
-    price: string
     assert: string
-    wallet_type: number
     count_date: string
     created_at?: Date | string | null
     updated_at?: Date | string
@@ -9442,10 +9417,7 @@ export namespace Prisma {
   export type UserBalanceHistoryUncheckedCreateWithoutTokenInput = {
     id?: number
     user_id?: string
-    balance: string
-    price: string
     assert: string
-    wallet_type: number
     count_date: string
     created_at?: Date | string | null
     updated_at?: Date | string
@@ -9520,14 +9492,11 @@ export namespace Prisma {
     NOT?: UserBalanceHistoryScalarWhereInput | UserBalanceHistoryScalarWhereInput[]
     id?: IntFilter<"UserBalanceHistory"> | number
     user_id?: StringFilter<"UserBalanceHistory"> | string
-    balance?: StringFilter<"UserBalanceHistory"> | string
-    price?: StringFilter<"UserBalanceHistory"> | string
     assert?: StringFilter<"UserBalanceHistory"> | string
-    token_id?: StringFilter<"UserBalanceHistory"> | string
-    wallet_type?: IntFilter<"UserBalanceHistory"> | number
     count_date?: StringFilter<"UserBalanceHistory"> | string
     created_at?: DateTimeNullableFilter<"UserBalanceHistory"> | Date | string | null
     updated_at?: DateTimeFilter<"UserBalanceHistory"> | Date | string
+    tokenId?: StringNullableFilter<"UserBalanceHistory"> | string | null
   }
 
   export type TokenCreateWithoutUserBalanceHistoryInput = {
@@ -9703,10 +9672,7 @@ export namespace Prisma {
   export type UserBalanceHistoryCreateManyTokenInput = {
     id?: number
     user_id?: string
-    balance: string
-    price: string
     assert: string
-    wallet_type: number
     count_date: string
     created_at?: Date | string | null
     updated_at?: Date | string
@@ -9714,10 +9680,7 @@ export namespace Prisma {
 
   export type UserBalanceHistoryUpdateWithoutTokenInput = {
     user_id?: StringFieldUpdateOperationsInput | string
-    balance?: StringFieldUpdateOperationsInput | string
-    price?: StringFieldUpdateOperationsInput | string
     assert?: StringFieldUpdateOperationsInput | string
-    wallet_type?: IntFieldUpdateOperationsInput | number
     count_date?: StringFieldUpdateOperationsInput | string
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9726,10 +9689,7 @@ export namespace Prisma {
   export type UserBalanceHistoryUncheckedUpdateWithoutTokenInput = {
     id?: IntFieldUpdateOperationsInput | number
     user_id?: StringFieldUpdateOperationsInput | string
-    balance?: StringFieldUpdateOperationsInput | string
-    price?: StringFieldUpdateOperationsInput | string
     assert?: StringFieldUpdateOperationsInput | string
-    wallet_type?: IntFieldUpdateOperationsInput | number
     count_date?: StringFieldUpdateOperationsInput | string
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9738,10 +9698,7 @@ export namespace Prisma {
   export type UserBalanceHistoryUncheckedUpdateManyWithoutTokenInput = {
     id?: IntFieldUpdateOperationsInput | number
     user_id?: StringFieldUpdateOperationsInput | string
-    balance?: StringFieldUpdateOperationsInput | string
-    price?: StringFieldUpdateOperationsInput | string
     assert?: StringFieldUpdateOperationsInput | string
-    wallet_type?: IntFieldUpdateOperationsInput | number
     count_date?: StringFieldUpdateOperationsInput | string
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string

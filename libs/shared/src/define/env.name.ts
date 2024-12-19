@@ -28,3 +28,7 @@ export const ALCHEMY_ACCESSKEY = 'alchemy.accessKey';
 
 // task
 export const TASK_PRICE_CRON = 'task.cron.price';
+
+//opsdk
+export const OPSDK_API = 'opsdk.api';
+export const OPSDK_WEBSOCKET = 'opsdk.websocket';

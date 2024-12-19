@@ -29,6 +29,9 @@ export async function clearTable() {
   await prisma.node.deleteMany();
   await prisma.token.deleteMany();
   await prisma.chain.deleteMany();
+  await prisma.userWallet.deleteMany();
+  await prisma.userBalanceHistory.deleteMany();
+  await prisma.tokenSubscribe.deleteMany();
 }
 
 export async function addDefaultChains() {
@@ -173,7 +176,8 @@ async function addDefaultNode() {
     },
     {
       chain_id: '-1',
-      node_url: 'https://ton.org/global.config.json',
+      //node_url: 'https://ton.org/global.config.json',
+      node_url: 'https://ton-blockchain.github.io/testnet-global.config.json',
     },
     {
       chain_id: '10',

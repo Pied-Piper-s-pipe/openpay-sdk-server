@@ -5,5 +5,5 @@ export class SubscribeTokenResponseDto {
 
   @IsString()
   @IsNotEmpty()
-  address: string;
+  user_id: string;
 }
